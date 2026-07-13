@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="shortcut icon" href="assets/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="mask-icon" href="assets/img/safari-pinned-tab.svg" color="#49EACB">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#080E10">
+
+<meta name="theme-color" content="#0B0F11">
+<title>Kaspa (KAS) Explained — BlockDAG, GHOSTDAG &amp; Mining</title>
+<meta name="description" content="Understand Kaspa (KAS): watch the BlockDAG form live, see how GHOSTDAG orders parallel blocks, and explore mining, tokenomics and wallets. Free, interactive.">
+<meta name="keywords" content="kaspa, KAS, blockDAG, GHOSTDAG, proof of work, kHeavyHash, crescendo, 10 BPS, kaspa tokenomics, kaspa explorer, kaspa wallet, kaspa seed phrase, kaspa paper wallet, kaspa mining, what is kaspa">
+<meta name="author" content="kaspa.best">
+<link rel="canonical" href="https://kaspa.best/">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<!-- Add your Search Console token: <meta name="google-site-verification" content="REPLACE_WITH_TOKEN"> -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="kaspa.best">
+<meta property="og:title" content="Kaspa (KAS) Explained — BlockDAG, GHOSTDAG &amp; Mining">
+<meta property="og:description" content="Understand Kaspa (KAS): watch the BlockDAG form live, see how GHOSTDAG orders parallel blocks, and explore mining, tokenomics and wallets. Free, interactive.">
+<meta property="og:url" content="https://kaspa.best/">
+<meta property="og:image" content="https://kaspa.best/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kaspa (KAS) Explained — BlockDAG, GHOSTDAG &amp; Mining">
+<meta name="twitter:description" content="Understand Kaspa (KAS): watch the BlockDAG form live, see how GHOSTDAG orders parallel blocks, and explore mining, tokenomics and wallets. Free, interactive.">
+<meta name="twitter:image" content="https://kaspa.best/assets/og.png">
+
+<!-- Google Analytics 4 — replace G-XXXXXXXXXX with your property ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+<!-- Schema: WebSite + Organization (independent hub) -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"kaspa.best","url":"https://kaspa.best/","description":"An independent, interactive educational hub for the Kaspa (KAS) blockDAG. Not affiliated with the Kaspa project.","publisher":{"@type":"Organization","name":"kaspa.best","url":"https://kaspa.best/"}}
+</script>
+<!-- Schema: Breadcrumb -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kaspa.best/"}]}
+</script>
+<!-- Schema: interactive tools -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Kaspa Interactive Playground","applicationCategory":"EducationalApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Browser-based tools to learn Kaspa: an interactive blockDAG visualizer, a proof-of-work mining demo, an emission explorer, a confirmation-speed race, a KAS/sompi/USD converter, a BIP39 seed & paper-wallet generator, and a quiz."}
+</script>
+<!-- Schema: glossary -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"DefinedTermSet","name":"Kaspa Glossary","hasDefinedTerm":[
+{"@type":"DefinedTerm","name":"BlockDAG","description":"A directed acyclic graph of blocks in which parallel blocks coexist and are ordered, instead of forming a single chain where competing blocks are orphaned."},
+{"@type":"DefinedTerm","name":"GHOSTDAG","description":"Kaspa's consensus protocol, which orders all parallel blocks into one agreed history by identifying the well-connected 'blue' set."},
+{"@type":"DefinedTerm","name":"kHeavyHash","description":"Kaspa's proof-of-work algorithm, based on matrix multiplication, mined by GPUs, FPGAs and ASICs."},
+{"@type":"DefinedTerm","name":"Sompi","description":"The smallest unit of KAS. One KAS equals 100,000,000 sompi."},
+{"@type":"DefinedTerm","name":"Crescendo","description":"The May 2025 Kaspa hardfork that raised the network from 1 to 10 blocks per second."},
+{"@type":"DefinedTerm","name":"Toccata","description":"Kaspa's upcoming hardfork adding native KRC-20 tokens, SilverScript covenant scripting and zero-knowledge verification, making it a programmable Layer 1."},
+{"@type":"DefinedTerm","name":"SilverScript","description":"Kaspa's native high-level smart-contract language that compiles directly to Kaspa script, introduced with the Toccata upgrade."},
+{"@type":"DefinedTerm","name":"Igra","description":"An independent, EVM-compatible Layer 2 (based rollup) from Igra Labs, built on Kaspa's proof-of-work blockDAG, using KAS wrapped 1:1 to iKAS as gas."},
+{"@type":"DefinedTerm","name":"DAGKnight","description":"A next-generation, parameterless consensus protocol under research for Kaspa."}
+]}
+</script>
+<!-- Schema: FAQ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is Kaspa just another Bitcoin clone?","acceptedAnswer":{"@type":"Answer","text":"No. Kaspa keeps Bitcoin's proof-of-work, UTXO model and fair-launch ethos, but replaces the single-file chain with a blockDAG ordered by GHOSTDAG, running far faster while keeping the same 51% security assumption."}},
+{"@type":"Question","name":"What was the Crescendo upgrade?","acceptedAnswer":{"@type":"Answer","text":"A May 2025 mainnet hardfork that raised the network from 1 to 10 blocks per second (100 ms blocks), cut the per-block reward tenfold to keep total emission flat, and activated KIPs enabling transaction payloads for smart contracts."}},
+{"@type":"Question","name":"How many KAS will there ever be?","acceptedAnswer":{"@type":"Answer","text":"A maximum of about 28.7 billion (hard cap near 29 billion in code). Over 95% is already circulating, with the rest minted on a smooth schedule that halves the block reward each year."}},
+{"@type":"Question","name":"Did the team or VCs get coins?","acceptedAnswer":{"@type":"Answer","text":"No. There was no premine, ICO, or allocation to founders, a foundation or venture capital. Every KAS was mined; development is funded by donations and miners."}},
+{"@type":"Question","name":"What is the Toccata upgrade?","acceptedAnswer":{"@type":"Answer","text":"Toccata is Kaspa's upcoming hardfork that adds native programmability to the base layer: native KRC-20 tokens, covenant scripting via the SilverScript language (Covenants++), and zero-knowledge proof verification, without a separate virtual machine. It activates automatically at DAA score 474,165,565, targeted for around June 2026."}},
+{"@type":"Question","name":"Does Kaspa have smart contracts?","acceptedAnswer":{"@type":"Answer","text":"Two ways. On Layer 2, the independent Igra Network already runs EVM smart contracts on top of Kaspa today. At the base layer, the upcoming Toccata hardfork (targeted around June 2026) adds native KRC-20 tokens, SilverScript covenant scripting and ZK verification, making the L1 itself programmable while keeping proof-of-work."}},
+{"@type":"Question","name":"What is Igra?","acceptedAnswer":{"@type":"Answer","text":"Igra Network is an independent, EVM-compatible Layer 2 from Igra Labs, built as a based rollup on Kaspa's proof-of-work blockDAG. It brings Ethereum-style smart contracts and DeFi to Kaspa now, with KAS wrapped 1:1 to iKAS as the gas token, and reached public mainnet in 2026. It is a separate project from the Kaspa L1 and carries its own third-party, early-stage risks."}},
+{"@type":"Question","name":"Is this an official Kaspa site?","acceptedAnswer":{"@type":"Answer","text":"No. This is an independent, community-built educational hub, not affiliated with the Kaspa project. Always verify against official sources such as kaspa.org."}}
+]}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#080E10;--ink-2:#0C1417;--ink-3:#111E23;--ink-4:#182A31;
+    --line:rgba(255,255,255,.07);--line-2:rgba(255,255,255,.14);
+    --teal:#49EACB;--teal-deep:#1fb89f;--blue:#7aa2ff;--coral:#ff6b81;--mint:#5ce0a0;--amber:#ffc870;--violet:#b69cff;
+    --text:#eaf5f0;--muted:#c3d5cd;
+    --display:"Space Grotesk",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:ui-monospace,Menlo,Consolas,monospace;
+    --radius:16px;--radius-sm:11px;--maxw:1240px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:
+      radial-gradient(1200px 760px at 84% -12%, rgba(73,234,203,.16), transparent 60%),
+      radial-gradient(1000px 640px at -6% 4%, rgba(122,162,255,.10), transparent 55%),
+      radial-gradient(900px 600px at 50% 116%, rgba(182,156,255,.08), transparent 60%),
+      #0B1012;
+    color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{font-family:var(--display);line-height:1.12;margin:0;font-weight:700}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  main{overflow-x:clip}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);display:inline-flex;gap:.6em;align-items:center}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--teal);opacity:.6}
+  .g{background:linear-gradient(120deg,var(--teal),var(--blue));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:700;font-size:.95rem;padding:.78em 1.45em;border:0;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--teal-deep));color:#04231d;cursor:pointer;transition:transform .15s,filter .15s}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:active{transform:none}.btn:disabled{opacity:.5;cursor:not-allowed;filter:grayscale(.3)}
+  .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line-2)}.btn.ghost:hover{border-color:var(--teal);color:var(--teal)}
+  .btn.luck{background:linear-gradient(135deg,var(--amber),#e0a93b);color:#241b04;border:0}.btn.luck:hover{filter:brightness(1.06)}
+  .btn.sm{font-size:.82rem;padding:.55em 1.05em}
+  .btn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+  /* ===================== FULL-WIDTH MEGA-NAV ===================== */
+  .mn{position:sticky;top:0;z-index:80;font-family:var(--body)}
+  .mn-bar{position:relative;z-index:85;background:rgba(11,16,18,.97);border-bottom:1px solid var(--line)}
+  .mn-shell{position:relative;width:100%;display:flex;align-items:center;gap:8px;height:76px;padding:0 clamp(20px,4vw,52px);transition:height .25s ease}
+  .mn.is-scrolled .mn-shell{height:60px}
+  .mn-bar::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(73,234,203,.5),rgba(122,162,255,.45),transparent);opacity:.55}
+  .mn-logo{display:flex;align-items:center;gap:.55em;font-family:var(--display);font-weight:700;font-size:1.24rem;color:var(--text);margin-right:auto}
+  .mn-logo b{color:var(--teal)}
+  .mn-bm{position:relative;display:flex;align-items:center}
+  .mn-bookmark{display:inline-flex;align-items:center;gap:.45em;padding:.5em .85em;border:1px solid var(--line-2);border-radius:11px;background:none;color:var(--muted);font-family:var(--display);font-weight:600;font-size:.86rem;cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+  .mn-bookmark:hover{color:var(--text);border-color:var(--teal);background:rgba(73,234,203,.08)}
+  .mn-bookmark svg{width:15px;height:15px}
+  .mn-bm-tip{position:absolute;top:calc(100% + 9px);right:0;white-space:nowrap;background:var(--ink-3);border:1px solid var(--line-2);color:var(--text);font-family:var(--body);font-size:.82rem;padding:.5em .8em;border-radius:10px;box-shadow:0 14px 30px -16px rgba(0,0,0,.85);opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .18s,transform .18s,visibility .18s;z-index:95;pointer-events:none}
+  .mn-bm-tip.show{opacity:1;visibility:visible;transform:translateY(0)}
+  .mn-bm-tip kbd{font-family:var(--mono);background:var(--ink);border:1px solid var(--line-2);border-radius:5px;padding:.08em .42em;font-size:.82em;color:var(--teal)}
+  .bm-callout{display:flex;align-items:center;gap:16px;flex-wrap:wrap;border:1px solid var(--line-2);border-radius:var(--radius);background:linear-gradient(135deg,rgba(73,234,203,.10),rgba(122,162,255,.07));padding:18px 22px}
+  .bm-callout-ic{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:13px;background:var(--ink-3);border:1px solid var(--line-2);color:var(--teal);flex:none}
+  .bm-callout-ic svg{width:22px;height:22px}
+  .bm-callout-txt{flex:1 1 240px;min-width:0}
+  .bm-callout-txt strong{display:block;font-family:var(--display);font-size:1.06rem;color:var(--text)}
+  .bm-hint{display:block;color:var(--muted);font-size:.9rem;margin-top:3px}
+  .bm-hint kbd{font-family:var(--mono);background:var(--ink);border:1px solid var(--line-2);border-radius:5px;padding:.08em .42em;font-size:.85em;color:var(--teal)}
+  .bm-do{flex:none}
+  .bm-drawer{background:none!important;border:1px solid var(--line-2)!important;color:var(--text)!important;margin-bottom:10px}
+  .mn-mark{width:30px;height:30px;flex:0 0 auto}
+  .mn-groups{display:flex;align-items:center;gap:2px;height:100%}
+  .mn-group{position:static;height:100%;display:flex;align-items:center}
+  .mn-top{display:inline-flex;align-items:center;gap:.45em;height:100%;padding:0 .9em;background:none;border:0;cursor:pointer;color:var(--muted);font-family:var(--display);font-weight:600;font-size:.95rem;transition:color .15s}
+  .mn-group:hover .mn-top,.mn-top:focus-visible{color:var(--text)}
+  .mn-top .chev{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-1px);transition:transform .2s;opacity:.7}
+  .mn-group:hover .mn-top .chev{transform:rotate(-135deg) translateY(1px)}
+  .mn-direct{display:inline-flex;align-items:center;height:100%;padding:0 .9em;color:var(--muted);font-family:var(--display);font-weight:600;font-size:.95rem;transition:color .15s}
+  .mn-direct:hover{color:var(--text)}
+  .mn-cta{display:inline-flex;align-items:center;gap:.4em;margin:10px 0 10px 12px;padding:.62em 1.2em;border:1.5px solid var(--teal);border-radius:11px;background:var(--ink-3);color:#fff;font-family:var(--display);font-weight:700;font-size:.9rem;line-height:1;transition:background .15s,color .15s,box-shadow .15s}
+  .mn-cta:hover{background:var(--teal);color:#04231d;box-shadow:0 6px 18px -7px rgba(73,234,203,.55)}
+  .mn-panel{position:absolute;left:0;right:0;top:100%;background:var(--ink-2);border-bottom:1px solid var(--line);border-top:1px solid var(--line);box-shadow:0 30px 60px -28px rgba(0,0,0,.85);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:90}
+  .mn-group:hover .mn-panel,.mn-panel.is-open{opacity:1;visibility:visible;transform:none}
+  .mn-panel-inner{width:100%;max-width:none;margin:0 auto;padding:26px clamp(20px,4vw,52px) 30px;display:grid;gap:26px}
+  .mn-col-h{font-family:var(--display);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;opacity:.9}
+  .mn-link{display:flex;gap:11px;align-items:flex-start;padding:9px 10px;border-radius:10px;transition:background .15s}
+  .mn-link:hover{background:rgba(255,255,255,.045)}
+  .mn-link .lt{font-family:var(--display);font-weight:600;font-size:.92rem;color:var(--text);display:flex;align-items:center;gap:.5em}
+  .mn-link .ld{font-size:.78rem;color:var(--muted);line-height:1.35}
+  .mn-link .tag{font-size:.52rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#04231d;background:var(--teal);border-radius:999px;padding:.12em .5em}
+  .mn-feat{background:linear-gradient(150deg,rgba(73,234,203,.14),rgba(122,162,255,.1));border:1px solid var(--line-2);border-radius:var(--radius-sm);padding:18px;display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+  .mn-feat h5{font-size:1rem;margin:0}.mn-feat p{font-size:.82rem;color:var(--muted);margin:.3em 0 0}
+  .mn-feat .fcta{font-family:var(--display);font-weight:700;font-size:.84rem;color:var(--teal)}
+  .mn-burger{display:none;flex-direction:column;gap:5px;width:42px;height:42px;align-items:center;justify-content:center;background:none;border:1px solid var(--line-2);border-radius:11px;cursor:pointer;margin-left:auto}
+  .mn-burger span{width:19px;height:2px;background:var(--text);border-radius:2px;transition:.25s}
+  .mn.is-open .mn-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .mn.is-open .mn-burger span:nth-child(2){opacity:0}
+  .mn.is-open .mn-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mn-drawer{position:fixed;inset:0;background:#070D10;z-index:75;padding:84px 20px 30px;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s}
+  .mn.is-open .mn-drawer{opacity:1;visibility:visible}
+  .mn-acc{border-bottom:1px solid var(--line)}
+  .mn-acc-top{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;background:none;border:0;cursor:pointer;font-family:var(--display);font-weight:700;font-size:1.2rem;color:var(--text);padding:18px 4px}
+  .mn-acc-top .caret{width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .25s;flex:0 0 auto}
+  .mn-acc.is-open>.mn-acc-top{color:var(--teal)}.mn-acc.is-open>.mn-acc-top .caret{transform:rotate(-135deg);border-color:var(--teal)}
+  .mn-acc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+  .mn-acc.is-open>.mn-acc-body{grid-template-rows:1fr}
+  .mn-acc-in{overflow:hidden;min-height:0;padding:0 0 10px}
+  .mn-sec{border-top:1px solid rgba(255,255,255,.05)}
+  .mn-sec-top{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;background:none;border:0;cursor:pointer;font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:14px 8px}
+  .mn-sec.is-open .mn-sec-top{color:var(--teal)}
+  .mn-sec-top .scaret{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .25s;opacity:.8;flex:0 0 auto}
+  .mn-sec.is-open .mn-sec-top .scaret{transform:rotate(-135deg)}
+  .mn-sec-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+  .mn-sec.is-open>.mn-sec-body{grid-template-rows:1fr}.mn-sec-in{overflow:hidden;min-height:0}
+  .mn-mlink{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:10px;color:var(--text);font-family:var(--display);font-weight:600;font-size:.96rem}
+  .mn-mlink:active,.mn-mlink:hover{background:rgba(255,255,255,.06)}
+  .mn-mlink .tag{font-size:.54rem;font-weight:700;text-transform:uppercase;color:#04231d;background:var(--teal);border-radius:999px;padding:.12em .5em}
+  .mn-drawer-foot{margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}.mn-drawer-foot .btn{display:flex;width:100%;justify-content:center;padding:.95em;font-size:1rem}
+
+  /* ===================== layout helpers ===================== */
+  .section{padding:60px 0;scroll-margin-top:88px}
+  .ticker,.sec-head,.tool{scroll-margin-top:88px}
+  .sec-head{max-width:70ch;margin:0 auto 28px;text-align:center}
+  .sec-head h2{font-size:clamp(1.6rem,3.8vw,2.3rem);margin:.3em 0 .4em}
+  .sec-head p{color:var(--muted)}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
+  .tool{background:linear-gradient(180deg,var(--ink-2),rgba(17,28,33,.55));border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .tool-head{display:flex;align-items:center;gap:.6em;flex-wrap:wrap;margin-bottom:4px}
+  .tool-head .ic{font-size:1.3rem}
+  .tool-head h3{font-size:1.15rem}
+  .tool-head .pill{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(73,234,203,.4);border-radius:999px;padding:.2em .6em}
+  .tool-sub{color:var(--muted);font-size:.88rem;margin:.2em 0 16px}
+
+  /* hero */
+  .hero{padding:48px 0 30px}
+  .hero-grid{display:grid;grid-template-columns:1.02fr 1.1fr;gap:34px;align-items:center}
+  .hero h1{font-size:clamp(2.2rem,5.4vw,3.5rem);margin:.25em 0 .4em}
+  .hero .lead{color:var(--muted);font-size:1.1rem;max-width:54ch;margin:0 0 1.3em}
+  .hero .cta{display:flex;gap:11px;flex-wrap:wrap}
+  .hero .micro{margin-top:18px;display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;color:var(--muted)}
+  .hero .micro b{color:var(--teal)}
+
+  /* blockDAG visualizer */
+  .dagwrap{position:relative;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(17,28,33,.75),rgba(10,17,20,.4));overflow:hidden}
+  .dagwrap canvas{display:block;width:100%;height:360px}
+  .dagkey{position:absolute;right:12px;top:10px;display:flex;flex-direction:column;gap:5px;font-family:var(--mono);font-size:.66rem;color:var(--muted)}
+  .dagkey i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .dagctl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px;border-top:1px solid var(--line);background:rgba(0,0,0,.18)}
+  .bpsbtns{display:flex;gap:4px;background:var(--ink);border:1px solid var(--line-2);border-radius:10px;padding:3px}
+  .bpsbtns button{font-family:var(--display);font-weight:700;font-size:.78rem;color:var(--muted);background:none;border:0;border-radius:7px;padding:.4em .7em;cursor:pointer}
+  .bpsbtns button.on{color:#04231d;background:var(--teal)}
+  .dagctl .lbl{font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+  .toggle{display:inline-flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:600;font-size:.8rem;color:var(--muted);cursor:pointer}
+  .toggle input{accent-color:var(--teal)}
+  .dagstat{margin-left:auto;font-family:var(--mono);font-size:.74rem;color:var(--teal)}
+
+  /* live ticker */
+  .ticker{margin-top:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--ink-2);display:grid;grid-template-columns:repeat(6,1fr);overflow:hidden}
+  .ticker .cell{padding:15px 18px;border-right:1px solid var(--line)}
+  .ticker .cell:last-child{border-right:0}
+  .ticker .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.4em}
+  .ticker .v{font-family:var(--display);font-weight:700;font-size:1.3rem;margin-top:5px;color:#fff}
+  .ticker .s{font-size:.72rem;color:var(--muted)}.ticker .up{color:var(--mint)}.ticker .down{color:var(--coral)}
+  .live{width:7px;height:7px;border-radius:50%;background:var(--mint);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(92,224,160,.5)}70%{box-shadow:0 0 0 7px rgba(92,224,160,0)}100%{box-shadow:0 0 0 0 rgba(92,224,160,0)}}
+  .tracklink{display:inline-flex;gap:.4em;color:var(--teal);font-family:var(--display);font-weight:700;font-size:.92rem;border-bottom:1px solid rgba(73,234,203,.35);padding-bottom:1px}.tracklink:hover{border-color:var(--teal)}
+
+  /* generic field/input */
+  .fld{margin-bottom:13px}
+  .fld label{display:block;font-size:.74rem;color:var(--muted);margin-bottom:5px;font-family:var(--display);font-weight:600}
+  .ig{display:flex;align-items:center;background:var(--ink);border:1px solid var(--line-2);border-radius:10px;padding:0 12px}
+  .ig input{flex:1;background:none;border:0;color:var(--text);font-family:var(--mono);font-size:1rem;padding:.65em 0;width:100%}
+  .ig input:focus{outline:none}.ig .u{color:var(--muted);font-size:.8rem;font-family:var(--display)}
+  input[type=range]{width:100%;accent-color:var(--teal)}
+  .statline{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-top:7px}.statline b{color:var(--text);font-family:var(--mono)}
+
+  /* two-column tool stage */
+  .stage2{display:grid;grid-template-columns:320px 1fr;gap:16px;align-items:start}
+  .viz{background:radial-gradient(700px 320px at 50% 0%, rgba(73,234,203,.08), transparent 70%),linear-gradient(180deg,var(--ink-3),var(--ink-2));border:1px solid var(--line);border-radius:var(--radius);padding:20px;min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .big{font-family:var(--display);font-weight:700;font-size:3rem;line-height:1}
+
+  /* mine */
+  .minebar{width:100%;max-width:560px;font-family:var(--mono);font-size:.8rem;color:var(--muted);word-break:break-all;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:12px;min-height:74px}
+  .minebar .hh{color:var(--teal)}.minebar .zero{color:var(--mint);font-weight:700}
+  .minemeta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;width:100%;max-width:560px;margin-top:10px}
+  .minemeta .m{background:var(--ink);border:1px solid var(--line);border-radius:9px;padding:10px;text-align:center}
+  .minemeta .m .l{font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .minemeta .m .v{font-family:var(--mono);font-weight:700;font-size:1.05rem;margin-top:3px}
+
+  /* race */
+  .lane{margin-bottom:16px}
+  .lane .lh{display:flex;justify-content:space-between;font-family:var(--display);font-weight:600;font-size:.9rem;margin-bottom:6px}
+  .lane .lh .rt{color:var(--muted);font-family:var(--mono);font-size:.78rem}
+  .track{height:26px;border-radius:8px;background:var(--ink);border:1px solid var(--line);overflow:hidden;position:relative}
+  .track i{display:block;height:100%;width:0;border-radius:8px;transition:width .08s linear}
+  .track .flag{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:.72rem;font-family:var(--display);font-weight:700;opacity:0;transition:opacity .2s}
+  .track.done .flag{opacity:1}
+  .lane.kas i{background:linear-gradient(90deg,var(--teal-deep),var(--teal))}
+  .lane.eth i{background:linear-gradient(90deg,#5b6cff,var(--blue))}
+  .lane.btc i{background:linear-gradient(90deg,#b8741a,var(--amber))}
+
+  /* converter */
+  .convgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+
+  /* emission */
+  .chartbox{border:1px solid var(--line);border-radius:var(--radius);background:var(--ink);padding:16px}
+  .chartbox canvas{width:100%;height:240px;display:block}
+  .chartbox .cap{font-family:var(--mono);font-size:.68rem;color:var(--muted);margin-top:8px}
+
+  /* quiz */
+  .quiz{max-width:680px;margin:0 auto}
+  .qcard{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .qq{font-family:var(--display);font-weight:700;font-size:1.1rem;margin-bottom:14px}
+  .qopts{display:grid;gap:10px}
+  .qopt{text-align:left;background:var(--ink);border:1px solid var(--line-2);border-radius:11px;padding:.9em 1em;color:var(--text);font-family:var(--display);font-weight:600;font-size:.92rem;cursor:pointer;transition:.12s}
+  .qopt:hover{border-color:var(--teal)}
+  .qopt.right{border-color:var(--mint);background:rgba(92,224,160,.12)}
+  .qopt.wrong{border-color:var(--coral);background:rgba(255,107,129,.12)}
+  .qopt:disabled{cursor:default}
+  .qexp{margin-top:14px;font-size:.86rem;color:var(--muted);border-left:2px solid var(--teal);padding-left:12px;display:none}
+  .qexp.show{display:block}
+  .qfoot{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+  .qprog{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+
+  /* fact chips / feature cards */
+  .facts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .fact{display:inline-flex;align-items:center;gap:.5em;background:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:.5em 1em;font-family:var(--display);font-weight:600;font-size:.85rem}.fact b{color:var(--teal)}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em;color:var(--text)}.card p{color:var(--muted);font-size:.9rem;margin:0}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .compare .col{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .compare .col.kas{border-color:rgba(73,234,203,.4);box-shadow:0 0 0 1px rgba(73,234,203,.15)}
+  .compare h3{font-size:1.08rem;margin-bottom:.55em}.compare ul{list-style:none;margin:0;padding:0}
+  .compare li{position:relative;padding-left:1.5em;margin-bottom:9px;color:var(--text);font-size:.9rem}
+  .compare li::before{content:"→";position:absolute;left:0;color:var(--muted)}.compare .kas li::before{content:"✓";color:var(--teal)}
+
+  /* flip cards */
+  .flips{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .flip{background:transparent;perspective:1000px;height:160px;cursor:pointer}
+  .flip-in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+  .flip.on .flip-in{transform:rotateY(180deg)}
+  .flip-f,.flip-b{position:absolute;inset:0;backface-visibility:hidden;border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;justify-content:center;background:var(--ink-2)}
+  .flip-f h4{font-size:1.05rem;color:var(--teal)}.flip-f span{font-size:.74rem;color:var(--muted);margin-top:6px}
+  .flip-b{transform:rotateY(180deg);background:linear-gradient(160deg,var(--ink-3),var(--ink-2))}
+  .flip-b p{font-size:.82rem;color:var(--text);margin:0}
+
+  /* band + roadmap + links */
+  .band{background:linear-gradient(135deg,rgba(73,234,203,.12),rgba(122,162,255,.1));border:1px solid var(--line-2);border-radius:var(--radius);padding:30px}
+  .band .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+  .band .stat{text-align:center}.band .stat .n{font-family:var(--display);font-weight:700;font-size:1.9rem;color:#fff}.band .stat .l{font-size:.78rem;color:var(--muted)}
+  .road{position:relative;max-width:760px;margin:0 auto}
+  .road::before{content:"";position:absolute;left:13px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--teal),var(--blue),transparent)}
+  .ritem{position:relative;padding:0 0 22px 44px}
+  .ritem .dot{position:absolute;left:6px;top:3px;width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid var(--teal)}
+  .ritem.done .dot{background:var(--teal)}.ritem.next .dot{border-color:var(--blue)}
+  .ritem .ph{font-family:var(--display);font-weight:700;font-size:1.02rem}
+  .ritem .ph .badge{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-radius:999px;padding:.18em .6em;margin-left:.6em;vertical-align:middle}
+  .ritem.done .badge{color:#04231d;background:var(--teal)}.ritem.next .badge{color:#04231d;background:var(--blue)}.ritem.future .badge{color:var(--muted);border:1px solid var(--line-2)}
+  .ritem p{color:var(--muted);font-size:.88rem;margin:.3em 0 0}
+  .lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+  .lcard{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius-sm);padding:15px 16px;transition:.15s}
+  .lcard.cta{border-color:rgba(73,234,203,.55);background:linear-gradient(135deg,rgba(73,234,203,.12),rgba(122,162,255,.06))}
+  .lcard.cta .lt,.lcard.cta .arr{color:var(--teal)}
+  .lcard.cta:hover{box-shadow:0 0 0 1px rgba(73,234,203,.4)}
+  .lcard .badge2{display:inline-block;font-size:.54rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#04231d;background:var(--teal);border-radius:999px;padding:.12em .5em;margin-left:.45em;vertical-align:middle}
+  .lcard.luckcard{border-color:rgba(255,200,112,.5);background:linear-gradient(135deg,rgba(255,200,112,.12),rgba(122,162,255,.05))}
+  .lcard.luckcard .lt,.lcard.luckcard .arr{color:var(--amber)}
+  .lcard.luckcard:hover{box-shadow:0 0 0 1px rgba(255,200,112,.4)}
+  .lcard .badge-luck{display:inline-block;font-size:.54rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#241b04;background:var(--amber);border-radius:999px;padding:.12em .5em;margin-left:.45em;vertical-align:middle}
+  .lcard:hover{border-color:var(--teal);transform:translateY(-2px)}
+  .lcard .lt{font-family:var(--display);font-weight:700;font-size:.95rem}.lcard .ls{font-size:.78rem;color:var(--muted)}.lcard .arr{color:var(--teal)}
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .step{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:20px;position:relative}
+  .step::before{counter-increment:s;content:counter(s);font-family:var(--display);font-weight:700;color:var(--teal);font-size:1.5rem}
+  .step h4{margin:.3em 0 .35em;font-size:1rem}.step p{color:var(--muted);font-size:.85rem;margin:0}
+
+  .faq{max-width:820px;margin:0 auto;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .faq details{border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}.faq details:last-child{border-bottom:0}
+  .faq summary{cursor:pointer;padding:17px 20px;font-family:var(--display);font-weight:600;font-size:.98rem;list-style:none;display:flex;justify-content:space-between;gap:14px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--teal);font-size:1.3rem;line-height:1}.faq details[open] summary::after{content:"–"}
+  .faq .fa{padding:0 20px 17px;color:var(--muted);font-size:.92rem}
+  .ymyl{border:1px solid rgba(255,200,112,.34);border-radius:var(--radius-sm);padding:20px 24px;background:rgba(255,200,112,.05);color:var(--muted);font-size:.84rem;line-height:1.6}.ymyl b{color:var(--text)}
+
+  /* mega footer */
+  .mf{position:relative;border-top:1px solid var(--line);margin-top:24px;padding:54px 0 26px;font-family:var(--body)}
+  .mf::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(73,234,203,.5),rgba(122,162,255,.45),transparent);opacity:.6}
+  .mf-top{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1fr;gap:30px 28px}
+  .mf-brand .mf-logo{display:flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--text)}.mf-brand .mf-logo b{color:var(--teal)}
+  .mf-brand p{color:var(--muted);font-size:.9rem;max-width:36ch;margin:.8em 0 1.1em}
+  .mf-soc{display:flex;flex-wrap:wrap;gap:8px}
+  .mf-soc a{display:inline-flex;align-items:center;font-family:var(--display);font-weight:600;font-size:.76rem;color:var(--muted);border:1px solid var(--line-2);border-radius:999px;padding:.4em .8em;transition:.15s}
+  .mf-soc a:hover{color:var(--teal);border-color:var(--teal)}
+  .mf-soc a.luck{color:#241b04;background:linear-gradient(135deg,var(--amber),#e0a93b);border-color:transparent}
+  .mf h4{font-family:var(--display);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;opacity:.92}
+  .mf ul{list-style:none;margin:0;padding:0}.mf li{margin-bottom:9px}
+  .mf li a{color:var(--muted);font-size:.87rem;transition:.15s}.mf li a:hover{color:var(--teal);padding-left:3px}
+  .mf-rg{margin-top:34px;padding:18px 22px;border:1px solid rgba(255,200,112,.34);border-radius:var(--radius-sm);background:var(--ink-2);color:var(--muted);font-size:.79rem;line-height:1.6}.mf-rg b{color:var(--text)}
+  .mf-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+  .mf-legal{display:flex;flex-wrap:wrap;gap:10px 16px}.mf-bot a:hover{color:var(--teal)}
+  .mf a.luck-lite{color:var(--amber);font-weight:700}.mf a.luck-lite:hover{color:#ffd98f}
+
+  /* seed & paper wallet generator */
+  .modetoggle{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;overflow:hidden}
+  .modetoggle button{font-family:var(--display);font-size:.84rem;font-weight:600;background:transparent;border:0;color:var(--muted);padding:.55em 1.1em;cursor:pointer}
+  .modetoggle button.on{background:linear-gradient(135deg,var(--teal),var(--teal-deep));color:#04231d}
+  .gwarn{display:flex;gap:12px;align-items:flex-start;background:rgba(255,200,112,.08);border:1px solid rgba(255,200,112,.4);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:16px;font-size:.88rem;color:var(--text)}
+  .gwarn .ic{font-size:1.2rem;flex:0 0 auto}
+  .gctl{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .seedwrap{position:relative;margin-top:6px}
+  .seedgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .seedcell{display:flex;align-items:center;gap:8px;background:var(--ink);border:1px solid var(--line-2);border-radius:10px;padding:10px 12px;font-family:var(--display);font-size:.95rem}
+  .seedcell .num{color:var(--muted);font-size:.72rem;min-width:18px;text-align:right}.seedcell .wd{color:var(--text);font-weight:600}
+  .seedwrap.hidden .seedgrid{filter:blur(8px);user-select:none;pointer-events:none}
+  .sreveal{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(10,17,20,.6);border-radius:var(--radius-sm);cursor:pointer;text-align:center;padding:16px}
+  .sreveal b{font-family:var(--display);color:var(--teal)}.sreveal span{font-size:.82rem;color:var(--muted);max-width:32ch}
+  .seedwrap:not(.hidden) .sreveal{display:none}
+  .gactions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .gempty{color:var(--muted);font-family:var(--display);font-size:.9rem;text-align:center;padding:28px 12px}.gempty b{color:var(--teal)}
+  .gtech{margin-top:14px;border:1px solid var(--line);border-radius:var(--radius-sm);background:rgba(255,255,255,.02)}
+  .gtech summary{cursor:pointer;padding:12px 16px;font-family:var(--display);font-size:.85rem;color:var(--muted);list-style:none}
+  .gtech summary::-webkit-details-marker{display:none}
+  .gtech .tbody{padding:0 16px 14px;font-size:.8rem;color:var(--muted);word-break:break-all;line-height:1.6}.gtech .tbody b{color:var(--text);font-family:var(--display)}
+  .pwwrap{position:relative;margin-top:14px;border-radius:var(--radius-sm);overflow:hidden;display:none}
+  .pwcanvas{display:block;width:100%;height:auto;border-radius:var(--radius-sm);border:1px solid var(--line-2);background:#0c1a16}
+  .pwwrap.hidden .pwcanvas{filter:blur(14px)}
+  .pwreveal{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(10,17,20,.55);cursor:pointer;text-align:center;padding:16px}
+  .pwreveal b{font-family:var(--display);color:var(--teal)}.pwreveal span{font-size:.82rem;color:var(--text);max-width:34ch}
+  .pwwrap:not(.hidden) .pwreveal{display:none}
+  .nameinput{flex:1;min-width:150px;background:var(--ink);border:1px solid var(--line-2);border-radius:10px;color:var(--text);font-family:var(--body);font-size:.9rem;padding:.6em 1em}
+  .nameinput::placeholder{color:var(--muted)}.nameinput:focus{outline:2px solid var(--teal);outline-offset:1px}
+  .swlabel{display:block;font-family:var(--display);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:14px;margin-bottom:7px}
+  .swatches{display:flex;gap:9px;flex-wrap:wrap}
+  .sw{width:30px;height:30px;border-radius:9px;cursor:pointer;border:2px solid transparent;transition:.15s}.sw:hover{transform:translateY(-2px)}
+  .sw-gold{box-shadow:0 0 0 1px rgba(255,210,100,.45),0 0 12px rgba(255,200,90,.4)}
+  .sw-gold.on{border-color:#ffd76a;box-shadow:0 0 0 2px rgba(255,210,100,.35),0 0 14px rgba(255,200,90,.5)}
+  .swnote{display:block;font-size:.72rem;color:var(--amber);font-weight:700;margin-top:9px}.sw.on{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.18)}
+  .safety{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+  .scard{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .scard.do{border-color:rgba(92,224,160,.35)}.scard.dont{border-color:rgba(255,107,129,.35)}
+  .scard h4{font-family:var(--display);font-size:1rem;margin:0 0 .5em}.scard ul{margin:0;padding-left:1.1em}.scard li{color:var(--muted);font-size:.86rem;margin-bottom:.45em;line-height:1.5}
+  .pw-print{display:none}
+  @media print{body *{visibility:hidden!important}.pw-print,.pw-print *{visibility:visible!important}.pw-print{display:block!important;position:absolute;left:0;top:0;width:100%}.pw-print img{width:100%;max-width:760px;display:block;margin:24px auto}}
+
+  .luckrail{margin-top:30px;text-align:center}
+  .luckrail a{display:inline-flex;align-items:center;gap:.5em;white-space:nowrap;max-width:100%;font-family:var(--display);font-weight:600;font-size:.8rem;color:var(--muted);border:1px solid rgba(255,200,112,.32);border-radius:10px;padding:.5em 1.05em;transition:.15s;background:rgba(255,200,112,.06)}
+  .luckrail a:hover{color:var(--amber);border-color:rgba(255,200,112,.5)}
+  .luckrail a b{color:var(--amber);font-weight:700}
+
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(16px);background:var(--ink-4);border:1px solid var(--teal);color:var(--text);font-family:var(--display);font-size:.85rem;padding:.7em 1.1em;border-radius:11px;opacity:0;transition:.25s;z-index:200;pointer-events:none;max-width:90vw;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:1000px){
+    .mn-groups,.mn-cta,.mn-bm{display:none}.mn-burger{display:flex}.mn-logo{margin-right:0}
+    .hero-grid{grid-template-columns:1fr}.stage2{grid-template-columns:1fr}
+    .ticker{grid-template-columns:repeat(3,1fr)}.ticker .cell:nth-child(3){border-right:0}
+    .grid3,.flips{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.band .grid4{grid-template-columns:1fr 1fr}
+    .mf-top{grid-template-columns:repeat(3,1fr)}.mf-brand{grid-column:1/-1;max-width:560px}
+  }
+  @media(max-width:640px){
+    .grid3,.compare,.steps,.flips,.convgrid{grid-template-columns:1fr}.ticker{grid-template-columns:1fr 1fr}.ticker .cell:nth-child(2){border-right:0}
+    .minemeta{grid-template-columns:1fr}.band .grid4{grid-template-columns:1fr 1fr}.mf-top{grid-template-columns:1fr 1fr}.mf-bot{flex-direction:column;align-items:flex-start}
+    .seedgrid{grid-template-columns:repeat(2,1fr)}.safety{grid-template-columns:1fr}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}.mn-panel,.mn-acc-body,.mn-sec-body,.reveal,.flip-in{transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+<style id="kpx-style">
+  .kpx{margin-top:22px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,var(--ink-2),rgba(12,20,23,.5));padding:18px 18px 14px;position:relative}
+  .kpx-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
+  .kpx-id{display:flex;align-items:center;gap:9px;font-family:var(--display)}
+  .kpx-dot{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--blue));flex:none}
+  .kpx-id b{font-size:1.05rem;color:var(--text)}
+  .kpx-id .sym{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+  .kpx-price{display:flex;gap:10px;align-items:baseline;font-family:var(--display)}
+  .kpx-now{font-size:1.15rem;font-weight:700;color:var(--text)}
+  .kpx-chg{font-size:.85rem}
+  .kpx-chg.up{color:var(--teal)} .kpx-chg.down{color:#ff6b81}
+  .kpx-ranges{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 6px}
+  .kpx-ranges button{font-family:var(--display);font-size:.78rem;font-weight:600;color:var(--muted);background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:.35em .85em;cursor:pointer;transition:.15s}
+  .kpx-ranges button:hover{border-color:var(--teal);color:var(--teal)}
+  .kpx-ranges button.on{background:linear-gradient(135deg,var(--teal),var(--teal-deep));color:#04231d;border-color:transparent}
+  .kpx-canvaswrap{position:relative;width:100%;height:340px}
+  .kpx-canvas{width:100%;height:100%;display:block;touch-action:pan-y}
+  .kpx-tip{position:absolute;pointer-events:none;background:var(--ink-3);border:1px solid var(--line-2);border-radius:8px;padding:6px 9px;font-family:var(--display);font-size:.72rem;line-height:1.35;color:var(--text);white-space:nowrap;transform:translate(-50%,-135%);opacity:0;transition:opacity .1s;z-index:3}
+  .kpx-tip b{color:var(--teal)}
+  .kpx-msg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-family:var(--display);font-size:.88rem;padding:0 16px}
+  .kpx-foot{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;font-size:.74rem;color:var(--muted);margin-top:8px}
+  .kpx-more{display:inline-flex;align-items:center;gap:.4em;font-family:var(--display);font-weight:700;font-size:.82rem;color:#04231d;background:linear-gradient(135deg,var(--teal),var(--teal-deep));padding:.5em 1em;border-radius:999px;transition:transform .15s,filter .15s}
+  .kpx-more:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  @media(max-width:600px){.kpx-canvaswrap{height:280px}}
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<style id="dag3d-style">
+  .dag3d{position:relative;max-width:1200px;margin:40px auto;padding:0 18px}
+  .dag3d-head{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
+  .dag3d-head h2{font-family:var(--display);font-size:clamp(1.4rem,3.5vw,2rem);margin:0;letter-spacing:-.01em}
+  .dag3d-head h2 b{color:var(--teal)}
+  .dag3d-head p{margin:.3em 0 0;color:var(--muted);font-size:.92rem;max-width:60ch}
+
+  .dag3d-stage{position:relative;width:100%;height:min(64vh,560px);border:1px solid var(--line);border-radius:var(--radius);
+    background:linear-gradient(180deg,rgba(12,20,23,.6),rgba(8,14,16,.8));overflow:hidden;cursor:grab}
+  .dag3d-stage:active{cursor:grabbing}
+  .dag3d-stage canvas{display:block}
+
+  /* controls overlay */
+  .dag3d-ui{position:absolute;left:14px;bottom:14px;right:14px;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;
+    pointer-events:none;z-index:3}
+  .dag3d-ui .ctl{pointer-events:auto;display:flex;align-items:center;gap:8px;background:rgba(8,14,16,.72);backdrop-filter:blur(8px);
+    border:1px solid var(--line-2);border-radius:999px;padding:7px 13px;font-family:var(--display);font-size:.78rem;color:var(--muted)}
+  .dag3d-ui input[type=range]{-webkit-appearance:none;appearance:none;width:96px;height:4px;border-radius:4px;background:#22343b;outline:none}
+  .dag3d-ui input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--teal);cursor:pointer;box-shadow:0 0 8px var(--teal)}
+  .dag3d-ui input[type=range]::-moz-range-thumb{width:14px;height:14px;border:0;border-radius:50%;background:var(--teal);cursor:pointer}
+  .dag3d-ui .btn{pointer-events:auto;cursor:pointer;background:rgba(73,234,203,.12);border:1px solid rgba(73,234,203,.4);color:var(--teal);
+    font-family:var(--display);font-weight:600;font-size:.78rem;border-radius:999px;padding:7px 13px}
+  .dag3d-ui .grow{flex:1}
+
+  /* legend */
+  .dag3d-legend{position:absolute;top:14px;left:14px;display:flex;flex-direction:column;gap:6px;z-index:3;
+    background:rgba(8,14,16,.6);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+  .dag3d-legend span{display:flex;align-items:center;gap:8px;font-family:var(--display);font-size:.72rem;color:var(--muted)}
+  .dag3d-legend i{width:10px;height:10px;border-radius:3px;flex:none}
+
+  /* hover/click tooltip */
+  .dag3d-tip{position:absolute;z-index:5;pointer-events:none;opacity:0;transform:translate(-50%,-115%);transition:opacity .12s;
+    background:rgba(8,14,16,.92);border:1px solid var(--teal);border-radius:10px;padding:8px 11px;font-family:var(--display);font-size:.74rem;
+    color:var(--text);white-space:nowrap;box-shadow:0 10px 30px -12px rgba(0,0,0,.8)}
+  .dag3d-tip.on{opacity:1}
+  .dag3d-tip b{color:var(--teal)}
+
+  /* loading + fallback */
+  .dag3d-msg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;z-index:2;color:var(--muted);font-family:var(--display);font-size:.9rem}
+  .dag3d-msg .spin{width:26px;height:26px;border-radius:50%;border:3px solid rgba(73,234,203,.25);border-top-color:var(--teal);animation:dagspin 1s linear infinite;margin-right:10px}
+  @keyframes dagspin{to{transform:rotate(360deg)}}
+</style>
+<style>
+  .center :is(.title,.lead),[style*="text-align:center"] :is(.title,.lead){margin-inline:auto!important}
+</style>
+<script>/* self-hosted BIP39 English wordlist (verified sha256 2f5eed..3b24dbda) */window.BIP39_EN=["abandon","ability","able","about","above","absent","absorb","abstract","absurd","abuse","access","accident","account","accuse","achieve","acid","acoustic","acquire","across","act","action","actor","actress","actual","adapt","add","addict","address","adjust","admit","adult","advance","advice","aerobic","affair","afford","afraid","again","age","agent","agree","ahead","aim","air","airport","aisle","alarm","album","alcohol","alert","alien","all","alley","allow","almost","alone","alpha","already","also","alter","always","amateur","amazing","among","amount","amused","analyst","anchor","ancient","anger","angle","angry","animal","ankle","announce","annual","another","answer","antenna","antique","anxiety","any","apart","apology","appear","apple","approve","april","arch","arctic","area","arena","argue","arm","armed","armor","army","around","arrange","arrest","arrive","arrow","art","artefact","artist","artwork","ask","aspect","assault","asset","assist","assume","asthma","athlete","atom","attack","attend","attitude","attract","auction","audit","august","aunt","author","auto","autumn","average","avocado","avoid","awake","aware","away","awesome","awful","awkward","axis","baby","bachelor","bacon","badge","bag","balance","balcony","ball","bamboo","banana","banner","bar","barely","bargain","barrel","base","basic","basket","battle","beach","bean","beauty","because","become","beef","before","begin","behave","behind","believe","below","belt","bench","benefit","best","betray","better","between","beyond","bicycle","bid","bike","bind","biology","bird","birth","bitter","black","blade","blame","blanket","blast","bleak","bless","blind","blood","blossom","blouse","blue","blur","blush","board","boat","body","boil","bomb","bone","bonus","book","boost","border","boring","borrow","boss","bottom","bounce","box","boy","bracket","brain","brand","brass","brave","bread","breeze","brick","bridge","brief","bright","bring","brisk","broccoli","broken","bronze","broom","brother","brown","brush","bubble","buddy","budget","buffalo","build","bulb","bulk","bullet","bundle","bunker","burden","burger","burst","bus","business","busy","butter","buyer","buzz","cabbage","cabin","cable","cactus","cage","cake","call","calm","camera","camp","can","canal","cancel","candy","cannon","canoe","canvas","canyon","capable","capital","captain","car","carbon","card","cargo","carpet","carry","cart","case","cash","casino","castle","casual","cat","catalog","catch","category","cattle","caught","cause","caution","cave","ceiling","celery","cement","census","century","cereal","certain","chair","chalk","champion","change","chaos","chapter","charge","chase","chat","cheap","check","cheese","chef","cherry","chest","chicken","chief","child","chimney","choice","choose","chronic","chuckle","chunk","churn","cigar","cinnamon","circle","citizen","city","civil","claim","clap","clarify","claw","clay","clean","clerk","clever","click","client","cliff","climb","clinic","clip","clock","clog","close","cloth","cloud","clown","club","clump","cluster","clutch","coach","coast","coconut","code","coffee","coil","coin","collect","color","column","combine","come","comfort","comic","common","company","concert","conduct","confirm","congress","connect","consider","control","convince","cook","cool","copper","copy","coral","core","corn","correct","cost","cotton","couch","country","couple","course","cousin","cover","coyote","crack","cradle","craft","cram","crane","crash","crater","crawl","crazy","cream","credit","creek","crew","cricket","crime","crisp","critic","crop","cross","crouch","crowd","crucial","cruel","cruise","crumble","crunch","crush","cry","crystal","cube","culture","cup","cupboard","curious","current","curtain","curve","cushion","custom","cute","cycle","dad","damage","damp","dance","danger","daring","dash","daughter","dawn","day","deal","debate","debris","decade","december","decide","decline","decorate","decrease","deer","defense","define","defy","degree","delay","deliver","demand","demise","denial","dentist","deny","depart","depend","deposit","depth","deputy","derive","describe","desert","design","desk","despair","destroy","detail","detect","develop","device","devote","diagram","dial","diamond","diary","dice","diesel","diet","differ","digital","dignity","dilemma","dinner","dinosaur","direct","dirt","disagree","discover","disease","dish","dismiss","disorder","display","distance","divert","divide","divorce","dizzy","doctor","document","dog","doll","dolphin","domain","donate","donkey","donor","door","dose","double","dove","draft","dragon","drama","drastic","draw","dream","dress","drift","drill","drink","drip","drive","drop","drum","dry","duck","dumb","dune","during","dust","dutch","duty","dwarf","dynamic","eager","eagle","early","earn","earth","easily","east","easy","echo","ecology","economy","edge","edit","educate","effort","egg","eight","either","elbow","elder","electric","elegant","element","elephant","elevator","elite","else","embark","embody","embrace","emerge","emotion","employ","empower","empty","enable","enact","end","endless","endorse","enemy","energy","enforce","engage","engine","enhance","enjoy","enlist","enough","enrich","enroll","ensure","enter","entire","entry","envelope","episode","equal","equip","era","erase","erode","erosion","error","erupt","escape","essay","essence","estate","eternal","ethics","evidence","evil","evoke","evolve","exact","example","excess","exchange","excite","exclude","excuse","execute","exercise","exhaust","exhibit","exile","exist","exit","exotic","expand","expect","expire","explain","expose","express","extend","extra","eye","eyebrow","fabric","face","faculty","fade","faint","faith","fall","false","fame","family","famous","fan","fancy","fantasy","farm","fashion","fat","fatal","father","fatigue","fault","favorite","feature","february","federal","fee","feed","feel","female","fence","festival","fetch","fever","few","fiber","fiction","field","figure","file","film","filter","final","find","fine","finger","finish","fire","firm","first","fiscal","fish","fit","fitness","fix","flag","flame","flash","flat","flavor","flee","flight","flip","float","flock","floor","flower","fluid","flush","fly","foam","focus","fog","foil","fold","follow","food","foot","force","forest","forget","fork","fortune","forum","forward","fossil","foster","found","fox","fragile","frame","frequent","fresh","friend","fringe","frog","front","frost","frown","frozen","fruit","fuel","fun","funny","furnace","fury","future","gadget","gain","galaxy","gallery","game","gap","garage","garbage","garden","garlic","garment","gas","gasp","gate","gather","gauge","gaze","general","genius","genre","gentle","genuine","gesture","ghost","giant","gift","giggle","ginger","giraffe","girl","give","glad","glance","glare","glass","glide","glimpse","globe","gloom","glory","glove","glow","glue","goat","goddess","gold","good","goose","gorilla","gospel","gossip","govern","gown","grab","grace","grain","grant","grape","grass","gravity","great","green","grid","grief","grit","grocery","group","grow","grunt","guard","guess","guide","guilt","guitar","gun","gym","habit","hair","half","hammer","hamster","hand","happy","harbor","hard","harsh","harvest","hat","have","hawk","hazard","head","health","heart","heavy","hedgehog","height","hello","helmet","help","hen","hero","hidden","high","hill","hint","hip","hire","history","hobby","hockey","hold","hole","holiday","hollow","home","honey","hood","hope","horn","horror","horse","hospital","host","hotel","hour","hover","hub","huge","human","humble","humor","hundred","hungry","hunt","hurdle","hurry","hurt","husband","hybrid","ice","icon","idea","identify","idle","ignore","ill","illegal","illness","image","imitate","immense","immune","impact","impose","improve","impulse","inch","include","income","increase","index","indicate","indoor","industry","infant","inflict","inform","inhale","inherit","initial","inject","injury","inmate","inner","innocent","input","inquiry","insane","insect","inside","inspire","install","intact","interest","into","invest","invite","involve","iron","island","isolate","issue","item","ivory","jacket","jaguar","jar","jazz","jealous","jeans","jelly","jewel","job","join","joke","journey","joy","judge","juice","jump","jungle","junior","junk","just","kangaroo","keen","keep","ketchup","key","kick","kid","kidney","kind","kingdom","kiss","kit","kitchen","kite","kitten","kiwi","knee","knife","knock","know","lab","label","labor","ladder","lady","lake","lamp","language","laptop","large","later","latin","laugh","laundry","lava","law","lawn","lawsuit","layer","lazy","leader","leaf","learn","leave","lecture","left","leg","legal","legend","leisure","lemon","lend","length","lens","leopard","lesson","letter","level","liar","liberty","library","license","life","lift","light","like","limb","limit","link","lion","liquid","list","little","live","lizard","load","loan","lobster","local","lock","logic","lonely","long","loop","lottery","loud","lounge","love","loyal","lucky","luggage","lumber","lunar","lunch","luxury","lyrics","machine","mad","magic","magnet","maid","mail","main","major","make","mammal","man","manage","mandate","mango","mansion","manual","maple","marble","march","margin","marine","market","marriage","mask","mass","master","match","material","math","matrix","matter","maximum","maze","meadow","mean","measure","meat","mechanic","medal","media","melody","melt","member","memory","mention","menu","mercy","merge","merit","merry","mesh","message","metal","method","middle","midnight","milk","million","mimic","mind","minimum","minor","minute","miracle","mirror","misery","miss","mistake","mix","mixed","mixture","mobile","model","modify","mom","moment","monitor","monkey","monster","month","moon","moral","more","morning","mosquito","mother","motion","motor","mountain","mouse","move","movie","much","muffin","mule","multiply","muscle","museum","mushroom","music","must","mutual","myself","mystery","myth","naive","name","napkin","narrow","nasty","nation","nature","near","neck","need","negative","neglect","neither","nephew","nerve","nest","net","network","neutral","never","news","next","nice","night","noble","noise","nominee","noodle","normal","north","nose","notable","note","nothing","notice","novel","now","nuclear","number","nurse","nut","oak","obey","object","oblige","obscure","observe","obtain","obvious","occur","ocean","october","odor","off","offer","office","often","oil","okay","old","olive","olympic","omit","once","one","onion","online","only","open","opera","opinion","oppose","option","orange","orbit","orchard","order","ordinary","organ","orient","original","orphan","ostrich","other","outdoor","outer","output","outside","oval","oven","over","own","owner","oxygen","oyster","ozone","pact","paddle","page","pair","palace","palm","panda","panel","panic","panther","paper","parade","parent","park","parrot","party","pass","patch","path","patient","patrol","pattern","pause","pave","payment","peace","peanut","pear","peasant","pelican","pen","penalty","pencil","people","pepper","perfect","permit","person","pet","phone","photo","phrase","physical","piano","picnic","picture","piece","pig","pigeon","pill","pilot","pink","pioneer","pipe","pistol","pitch","pizza","place","planet","plastic","plate","play","please","pledge","pluck","plug","plunge","poem","poet","point","polar","pole","police","pond","pony","pool","popular","portion","position","possible","post","potato","pottery","poverty","powder","power","practice","praise","predict","prefer","prepare","present","pretty","prevent","price","pride","primary","print","priority","prison","private","prize","problem","process","produce","profit","program","project","promote","proof","property","prosper","protect","proud","provide","public","pudding","pull","pulp","pulse","pumpkin","punch","pupil","puppy","purchase","purity","purpose","purse","push","put","puzzle","pyramid","quality","quantum","quarter","question","quick","quit","quiz","quote","rabbit","raccoon","race","rack","radar","radio","rail","rain","raise","rally","ramp","ranch","random","range","rapid","rare","rate","rather","raven","raw","razor","ready","real","reason","rebel","rebuild","recall","receive","recipe","record","recycle","reduce","reflect","reform","refuse","region","regret","regular","reject","relax","release","relief","rely","remain","remember","remind","remove","render","renew","rent","reopen","repair","repeat","replace","report","require","rescue","resemble","resist","resource","response","result","retire","retreat","return","reunion","reveal","review","reward","rhythm","rib","ribbon","rice","rich","ride","ridge","rifle","right","rigid","ring","riot","ripple","risk","ritual","rival","river","road","roast","robot","robust","rocket","romance","roof","rookie","room","rose","rotate","rough","round","route","royal","rubber","rude","rug","rule","run","runway","rural","sad","saddle","sadness","safe","sail","salad","salmon","salon","salt","salute","same","sample","sand","satisfy","satoshi","sauce","sausage","save","say","scale","scan","scare","scatter","scene","scheme","school","science","scissors","scorpion","scout","scrap","screen","script","scrub","sea","search","season","seat","second","secret","section","security","seed","seek","segment","select","sell","seminar","senior","sense","sentence","series","service","session","settle","setup","seven","shadow","shaft","shallow","share","shed","shell","sheriff","shield","shift","shine","ship","shiver","shock","shoe","shoot","shop","short","shoulder","shove","shrimp","shrug","shuffle","shy","sibling","sick","side","siege","sight","sign","silent","silk","silly","silver","similar","simple","since","sing","siren","sister","situate","six","size","skate","sketch","ski","skill","skin","skirt","skull","slab","slam","sleep","slender","slice","slide","slight","slim","slogan","slot","slow","slush","small","smart","smile","smoke","smooth","snack","snake","snap","sniff","snow","soap","soccer","social","sock","soda","soft","solar","soldier","solid","solution","solve","someone","song","soon","sorry","sort","soul","sound","soup","source","south","space","spare","spatial","spawn","speak","special","speed","spell","spend","sphere","spice","spider","spike","spin","spirit","split","spoil","sponsor","spoon","sport","spot","spray","spread","spring","spy","square","squeeze","squirrel","stable","stadium","staff","stage","stairs","stamp","stand","start","state","stay","steak","steel","stem","step","stereo","stick","still","sting","stock","stomach","stone","stool","story","stove","strategy","street","strike","strong","struggle","student","stuff","stumble","style","subject","submit","subway","success","such","sudden","suffer","sugar","suggest","suit","summer","sun","sunny","sunset","super","supply","supreme","sure","surface","surge","surprise","surround","survey","suspect","sustain","swallow","swamp","swap","swarm","swear","sweet","swift","swim","swing","switch","sword","symbol","symptom","syrup","system","table","tackle","tag","tail","talent","talk","tank","tape","target","task","taste","tattoo","taxi","teach","team","tell","ten","tenant","tennis","tent","term","test","text","thank","that","theme","then","theory","there","they","thing","this","thought","three","thrive","throw","thumb","thunder","ticket","tide","tiger","tilt","timber","time","tiny","tip","tired","tissue","title","toast","tobacco","today","toddler","toe","together","toilet","token","tomato","tomorrow","tone","tongue","tonight","tool","tooth","top","topic","topple","torch","tornado","tortoise","toss","total","tourist","toward","tower","town","toy","track","trade","traffic","tragic","train","transfer","trap","trash","travel","tray","treat","tree","trend","trial","tribe","trick","trigger","trim","trip","trophy","trouble","truck","true","truly","trumpet","trust","truth","try","tube","tuition","tumble","tuna","tunnel","turkey","turn","turtle","twelve","twenty","twice","twin","twist","two","type","typical","ugly","umbrella","unable","unaware","uncle","uncover","under","undo","unfair","unfold","unhappy","uniform","unique","unit","universe","unknown","unlock","until","unusual","unveil","update","upgrade","uphold","upon","upper","upset","urban","urge","usage","use","used","useful","useless","usual","utility","vacant","vacuum","vague","valid","valley","valve","van","vanish","vapor","various","vast","vault","vehicle","velvet","vendor","venture","venue","verb","verify","version","very","vessel","veteran","viable","vibrant","vicious","victory","video","view","village","vintage","violin","virtual","virus","visa","visit","visual","vital","vivid","vocal","voice","void","volcano","volume","vote","voyage","wage","wagon","wait","walk","wall","walnut","want","warfare","warm","warrior","wash","wasp","waste","water","wave","way","wealth","weapon","wear","weasel","weather","web","wedding","weekend","weird","welcome","west","wet","whale","what","wheat","wheel","when","where","whip","whisper","wide","width","wife","wild","will","win","window","wine","wing","wink","winner","winter","wire","wisdom","wise","wish","witness","wolf","woman","wonder","wood","wool","word","work","world","worry","worth","wrap","wreck","wrestle","wrist","write","wrong","yard","year","yellow","you","young","youth","zebra","zero","zone","zoo"];</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "kaspa.best",
+ "url": "https://kaspa.best/",
+ "logo": "https://kaspa.best/assets/img/icon-512.png",
+ "description": "An independent educational project explaining Kaspa (KAS), its BlockDAG and GHOSTDAG consensus, mining and wallets.",
+ "disambiguatingDescription": "Independent. Not affiliated with, endorsed by, or connected to the Kaspa project or its developers."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "TechArticle",
+ "headline": "Kaspa (KAS) Explained — BlockDAG, GHOSTDAG & Mining",
+ "description": "Understand Kaspa (KAS): watch the BlockDAG form live, see how GHOSTDAG orders parallel blocks, and explore mining, tokenomics and wallets.",
+ "image": "https://kaspa.best/assets/og.png",
+ "datePublished": "2026-01-15",
+ "dateModified": "2026-07-14",
+ "inLanguage": "en",
+ "author": {
+  "@type": "Organization",
+  "name": "kaspa.best",
+  "url": "https://kaspa.best/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "kaspa.best",
+  "url": "https://kaspa.best/",
+  "logo": {
+   "@type": "ImageObject",
+   "url": "https://kaspa.best/assets/img/icon-512.png"
+  }
+ },
+ "mainEntityOfPage": {
+  "@type": "WebPage",
+  "@id": "https://kaspa.best/"
+ },
+ "about": {
+  "@type": "Thing",
+  "name": "Kaspa",
+  "alternateName": "KAS",
+  "sameAs": [
+   "https://kaspa.org",
+   "https://wiki.kaspa.org",
+   "https://www.coingecko.com/en/coins/kaspa"
+  ]
+ },
+ "articleSection": [
+  "BlockDAG",
+  "GHOSTDAG",
+  "Mining",
+  "Tokenomics",
+  "Wallets"
+ ],
+ "proficiencyLevel": "Beginner"
+}
+</script>
+</head>
+<body id="top">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#49EACB"/><stop offset="1" stop-color="#1fb89f"/></linearGradient>
+</defs></svg>
+
+<!-- ============================ NAV ============================ -->
+<nav class="mn" id="mn">
+  <div class="mn-bar">
+    <div class="mn-shell">
+      <a class="mn-logo" href="#top">
+        <svg class="mn-mark" viewBox="0 0 30 30" aria-hidden="true">
+          <circle cx="8" cy="9" r="3" fill="url(#kg)"/><circle cx="22" cy="7" r="3" fill="url(#kg)"/><circle cx="15" cy="16" r="3.4" fill="url(#kg)"/><circle cx="7" cy="23" r="3" fill="url(#kg)"/><circle cx="23" cy="22" r="3" fill="url(#kg)"/>
+          <g stroke="#49EACB" stroke-width="1.2" opacity=".5"><line x1="8" y1="9" x2="15" y2="16"/><line x1="22" y1="7" x2="15" y2="16"/><line x1="15" y1="16" x2="7" y2="23"/><line x1="15" y1="16" x2="23" y2="22"/></g>
+        </svg>Kaspa<b>.best</b>
+      </a>
+      <div class="mn-groups">
+        <div class="mn-group">
+          <button class="mn-top" type="button">Learn <i class="chev"></i></button>
+          <div class="mn-panel"><div class="mn-panel-inner" style="grid-template-columns:1fr 1fr 1.1fr">
+            <div><div class="mn-col-h">Basics</div>
+              <a class="mn-link" href="#what"><span class="lt">What is Kaspa</span></a>
+              <a class="mn-link" href="#blockdag"><span class="lt">BlockDAG explained</span></a>
+              <a class="mn-link" href="#ghostdag"><span class="lt">GHOSTDAG &amp; the blue set</span></a>
+            </div>
+            <div><div class="mn-col-h">Deeper</div>
+              <a class="mn-link" href="#crescendo"><span class="lt">Crescendo · 10 BPS</span></a>
+              <a class="mn-link" href="#toccata"><span class="lt">Toccata · smart contracts <span class="tag">new</span></span></a>
+              <a class="mn-link" href="#tokenomics"><span class="lt">Tokenomics</span></a>
+              <a class="mn-link" href="#roadmap"><span class="lt">Roadmap</span></a>
+            </div>
+            <div class="mn-feat"><div><h5>New to Kaspa?</h5><p>Start at the top and play your way down — every concept has a tool.</p></div><a class="fcta" href="#what">Start learning →</a></div>
+          </div></div>
+        </div>
+        <div class="mn-group">
+          <button class="mn-top" type="button">Tools <i class="chev"></i></button>
+          <div class="mn-panel"><div class="mn-panel-inner" style="grid-template-columns:1fr 1fr 1.1fr">
+            <div><div class="mn-col-h">Play</div>
+              <a class="mn-link" href="#dag"><span class="lt">BlockDAG visualizer</span></a>
+              <a class="mn-link" href="#dag3d"><span class="lt">3D BlockDAG <span class="tag">new</span></span></a>
+              <a class="mn-link" href="#mine"><span class="lt">Mine a block (PoW)</span></a>
+              <a class="mn-link" href="#race"><span class="lt">Confirmation race</span></a>
+              <a class="mn-link" href="#wallet"><span class="lt">Seed &amp; paper wallet <span class="tag">new</span></span></a>
+            </div>
+            <div><div class="mn-col-h">Calculate</div>
+              <a class="mn-link" href="#emission"><span class="lt">Emission explorer</span></a>
+              <a class="mn-link" href="#convert"><span class="lt">KAS / sompi converter</span></a>
+              <a class="mn-link" href="#quiz"><span class="lt">Kaspa quiz</span></a>
+              <div class="mn-col-h" style="margin-top:14px">Wallets</div>
+              <a class="mn-link" href="watch-only-kaspa-wallet.html"><span class="lt">Watch-only wallet <span class="tag">new</span></span></a>
+              <a class="mn-link" href="experimental-kaspa-wallet.html"><span class="lt">Experimental wallet <span class="tag">beta</span></span></a>
+            </div>
+            <div class="mn-feat"><div><h5 class="mono" id="navPrice">Track KAS price</h5><p>Live price, charts &amp; history on Luck.fyi.</p></div><a class="fcta" href="https://luck.fyi/crypto/kaspa">Track on Luck.fyi →</a></div>
+          </div></div>
+        </div>
+        <div class="mn-group">
+          <button class="mn-top" type="button">Network <i class="chev"></i></button>
+          <div class="mn-panel"><div class="mn-panel-inner" style="grid-template-columns:1fr 1fr">
+            <div><div class="mn-col-h">Live</div>
+              <a class="mn-link" href="#stats"><span class="lt">Network dashboard</span></a>
+              <a class="mn-link" href="#mining"><span class="lt">Mining (kHeavyHash)</span></a>
+            </div>
+            <div><div class="mn-col-h">Explore</div>
+              <a class="mn-link" href="#explorers"><span class="lt">Block explorers</span></a>
+              <a class="mn-link" href="#igra"><span class="lt">Igra L2 (EVM) <span class="tag">new</span></span></a>
+              <a class="mn-link" href="#krc20"><span class="lt">KRC-20 tokens</span></a>
+            </div>
+          </div></div>
+        </div>
+        <div class="mn-group">
+          <button class="mn-top" type="button">Use KAS <i class="chev"></i></button>
+          <div class="mn-panel"><div class="mn-panel-inner" style="grid-template-columns:1fr 1fr 1.1fr">
+            <div><div class="mn-col-h">Get &amp; hold</div>
+              <a class="mn-link" href="#wallets"><span class="lt">Wallets</span></a>
+              <a class="mn-link" href="#exchanges"><span class="lt">Exchanges</span></a>
+              <a class="mn-link" href="#buy"><span class="lt">How to buy</span></a>
+            </div>
+            <div><div class="mn-col-h">Build</div>
+              <a class="mn-link" href="#krc20"><span class="lt">KRC-20 tokens</span></a>
+              <a class="mn-link" href="#toccata"><span class="lt">Smart contracts <span class="tag">soon</span></span></a>
+            </div>
+            <div class="mn-feat"><div><h5>Watch the price move</h5><p>Track KAS with live charts on Luck.fyi.</p></div><a class="fcta" href="https://luck.fyi/crypto/kaspa">Track KAS price →</a></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="mn-bm">
+        <button id="bmBtn" class="mn-bookmark" type="button" aria-label="Bookmark this site">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h8a1 1 0 0 1 1 1V17l-5-3.2L5 17V4.5a1 1 0 0 1 1-1z"/></svg>
+          <span>Bookmark</span>
+        </button>
+        <span id="bmTip" class="mn-bm-tip" role="status" aria-live="polite"></span>
+      </div>
+      <a class="mn-cta" href="https://luck.fyi/crypto/kaspa">Track price →</a>
+      <button class="mn-burger" id="mnBurger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mn-drawer" id="mnDrawer"><div id="mnAcc"></div>
+    <div class="mn-drawer-foot"><button class="btn bm-drawer" type="button" data-bm><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M6 3.5h8a1 1 0 0 1 1 1V17l-5-3.2L5 17V4.5a1 1 0 0 1 1-1z"/></svg>Bookmark this site</button><a class="btn" href="https://luck.fyi/crypto/kaspa">Track KAS price →</a></div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============================ HERO + VISUALIZER ============================ -->
+<section class="hero"><div class="wrap">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">The fastest proof-of-work · blockDAG</span>
+      <h1>Kaspa, at its <span class="g">best</span>.</h1>
+      <p class="lead">Kaspa keeps Bitcoin's proof-of-work but trades the single-file chain for a <strong>blockDAG</strong> — blocks are mined in parallel and ordered by GHOSTDAG, so it runs fast without giving up security. Consider this the friendly, hands-on tour its (famously fanatic) community wishes everyone got: crank the visualizer to 100 blocks a second, mine a block, race a transaction, and see what the fuss is about.</p>
+      <div class="cta">
+        <a class="btn luck" href="https://luck.fyi/crypto/kaspa">Track KAS price on Luck.fyi →</a>
+        <a class="btn ghost" href="#why">Why fans call it the best ↓</a>
+      </div>
+      <p style="font-size:.8rem;color:var(--muted);margin:14px 0 0;max-width:56ch">"Best" here means the <em>technology</em> Kaspa fans love — not a claim that it's the best investment. Nothing on this site is financial advice.</p>
+      <div class="micro"><span><b>Fair launch</b> · 0% premine</span><span><b>10 BPS</b> live since 2025</span><span><b>~10s</b> to full security</span></div>
+    </div>
+
+    <!-- SIGNATURE: interactive blockDAG -->
+    <div id="dag" class="dagwrap">
+      <canvas id="dagCv" aria-label="Interactive blockDAG visualization"></canvas>
+      <div class="dagkey"><span><i style="background:#49EACB"></i>blue set (ordered)</span><span><i style="background:#ff6b81"></i>red (out of order)</span></div>
+      <div class="dagctl">
+        <span class="lbl">Speed</span>
+        <div class="bpsbtns" id="bpsBtns">
+          <button data-bps="1">1 BPS</button><button data-bps="10" class="on">10</button><button data-bps="32">32</button><button data-bps="100">100</button>
+        </div>
+        <label class="toggle"><input type="checkbox" id="blueToggle" checked> Colour the blue set</label>
+        <label class="toggle"><input type="checkbox" id="pauseToggle"> Pause</label>
+        <span class="dagstat" id="dagStat">~10 blocks/sec</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVE TICKER -->
+  <div class="ticker" id="stats">
+    <div class="cell"><div class="k"><span class="live"></span> KAS price</div><div class="v" id="tPrice">—</div><div class="s" id="tChange">live on deploy</div></div>
+    <div class="cell"><div class="k">Market cap</div><div class="v" id="tCap">—</div><div class="s" id="tRank">CoinGecko</div></div>
+    <div class="cell"><div class="k">Circulating</div><div class="v" id="tCirc">—</div><div class="s">of 28.7B max</div></div>
+    <div class="cell"><div class="k">Block speed</div><div class="v">10 <span style="font-size:.8rem;color:var(--muted)">BPS</span></div><div class="s">~100 ms blocks</div></div>
+    <div class="cell"><div class="k">DAA score</div><div class="v" id="tDaa">—</div><div class="s">virtual height</div></div>
+    <div class="cell"><div class="k">Hashrate</div><div class="v" id="tHash">—</div><div class="s">kHeavyHash PoW</div></div>
+  </div>
+  <!-- ===== KASPA PRICE TRACKER ===== -->
+  <div class="kpx" id="kpx">
+    <div class="kpx-head">
+      <div class="kpx-id"><span class="kpx-dot"></span><b>Kaspa</b><span class="sym">KAS</span></div>
+      <div class="kpx-price"><span class="kpx-now" id="kpxNow">—</span><span class="kpx-chg" id="kpxChg"></span></div>
+    </div>
+    <div class="kpx-ranges" id="kpxRanges">
+      <button type="button" data-d="1" class="on">24H</button>
+      <button type="button" data-d="7">7D</button>
+      <button type="button" data-d="30">30D</button>
+      <button type="button" data-d="90">90D</button>
+      <button type="button" data-d="365">1Y</button>
+    </div>
+    <div class="kpx-canvaswrap"><canvas class="kpx-canvas" id="kpxCanvas"></canvas><div class="kpx-tip" id="kpxTip"></div><div class="kpx-msg" id="kpxMsg">Loading chart…</div></div>
+    <div class="kpx-foot">
+      <span>Source: CoinGecko · info only, not financial advice.</span>
+      <a class="kpx-more" href="https://luck.fyi/crypto.html">Track more crypto prices →</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============================ BOOKMARK PROMPT ============================ -->
+<div class="wrap" style="margin-top:34px">
+  <div class="bm-callout">
+    <span class="bm-callout-ic"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h8a1 1 0 0 1 1 1V17l-5-3.2L5 17V4.5a1 1 0 0 1 1-1z"/></svg></span>
+    <div class="bm-callout-txt">
+      <strong>Bookmark Kaspa.best</strong>
+      <span class="bm-hint" id="bmHint">Keep this guide one tap away.</span>
+    </div>
+    <button class="btn bm-do" type="button" data-bm>Bookmark this site</button>
+  </div>
+</div>
+
+<!-- ============================ WHY THE BEST ============================ -->
+<section class="section" id="why"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">kaspa.best, literally</span><h2>Why fans call Kaspa "the best".</h2>
+    <p>Ask the Kaspa community — some of the most devoted in all of crypto — and you'll get a list. Here's the honest, technical version of why, plus a clear note on what "best" does and doesn't mean.</p>
+  </div>
+  <div class="grid3">
+    <div class="card"><h3>⚡ Fastest PoW, by far</h3><p>10 blocks per second today (100 ms each), with 32 and 100 on the roadmap — the quickest proof-of-work network running. Seconds to confirm, not minutes.</p></div>
+    <div class="card"><h3>🪂 Truly fair launch</h3><p>No premine, no ICO, no VC, no team or foundation allocation. Every KAS was mined. For purists, the cleanest start since Bitcoin itself.</p></div>
+    <div class="card"><h3>🕸️ It scales the chain itself</h3><p>GHOSTDAG keeps every parallel block instead of orphaning it, so speed rises without weakening the 51% security assumption. That's the headline innovation.</p></div>
+    <div class="card"><h3>🔓 Open &amp; decentralized</h3><p>Open-source and community-funded, with no gatekeepers. Development happens in the open on GitHub; anyone can mine, run a node, or build.</p></div>
+    <div class="card"><h3>🪙 Sound, smooth money</h3><p>A hard cap near 28.7B and a reward that halves yearly in tiny monthly steps — deflationary by design, without Bitcoin's abrupt four-year cliffs.</p></div>
+    <div class="card"><h3>🧠 Serious pedigree</h3><p>Founded by Yonatan Sompolinsky, whose earlier GHOST research influenced Ethereum. The DAGKnight protocol pushes the science further still.</p></div>
+  </div>
+  <div class="ymyl" style="margin-top:18px"><b>To be clear about "best":</b> we mean the technology and principles this community is passionate about — speed, fairness, and the blockDAG design. We are <b>not</b> saying Kaspa is the best cryptocurrency to buy, or that its price will rise. Crypto is volatile and risky, every project has trade-offs, and <b>nothing here is financial advice.</b> Always do your own research.</div>
+</div></section>
+
+<!-- ============================ WHAT IS ============================ -->
+<section class="section" id="what"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">The 30-second version</span><h2>What is Kaspa?</h2>
+    <p>Kaspa (ticker <strong>KAS</strong>) is the first cryptocurrency to run the <strong>GHOSTDAG/PHANTOM</strong> protocol in production — a generalization of Bitcoin's consensus that turns the chain into a <strong>directed acyclic graph of blocks</strong>. Same proof-of-work trust; dramatically more throughput.</p>
+  </div>
+  <div class="facts">
+    <span class="fact"><b>Founded by</b> Yonatan Sompolinsky</span>
+    <span class="fact"><b>Launched</b> 7 Nov 2021</span>
+    <span class="fact"><b>Consensus</b> GHOSTDAG (PoW)</span>
+    <span class="fact"><b>Mining</b> kHeavyHash</span>
+    <span class="fact"><b>Model</b> UTXO, like Bitcoin</span>
+    <span class="fact"><b>1 sompi</b> = 0.00000001 KAS</span>
+    <span class="fact"><b>No</b> premine · ICO · VC</span>
+  </div>
+</div></section>
+
+<!-- ============================ MINE A BLOCK ============================ -->
+<section class="dag3d" id="dag3d">
+  <div class="dag3d-head">
+    <div>
+      <h2>The <b>BlockDAG</b>, in 3D</h2>
+      <p>Unlike a single chain, Kaspa lets blocks be created in parallel and reference multiple parents — so throughput scales without orphaning work. Drag to orbit, hover a block to inspect it, and watch confirmations sweep through.</p>
+    </div>
+  </div>
+
+  <div class="dag3d-stage" id="dagStage">
+    <div class="dag3d-legend" aria-hidden="true">
+      <span><i style="background:#49EACB"></i> Selected chain</span>
+      <span><i style="background:#7aa2ff"></i> Blue set (merged)</span>
+      <span><i style="background:#9d7bff"></i> Parallel blocks</span>
+    </div>
+
+    <div class="dag3d-tip" id="dagTip"></div>
+
+    <div class="dag3d-ui">
+      <div class="ctl">Speed <input type="range" id="dagSpeed" min="0" max="100" value="55" aria-label="Throughput speed"></div>
+      <div class="ctl">Zoom <input type="range" id="dagZoom" min="0" max="100" value="42" aria-label="Camera zoom"></div>
+      <span class="grow"></span>
+      <button class="btn" id="dagReset" type="button">Reset view</button>
+    </div>
+
+    <div class="dag3d-msg" id="dagMsg"><span class="spin"></span> Loading 3D visualizer…</div>
+  </div>
+</section>
+
+<section class="section" id="mine"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Tool · proof-of-work</span><h2>Mine a block in your browser.</h2>
+    <p>Proof-of-work is just guess-and-check: change a number (the nonce), hash the block, and hope the hash starts with enough zeros. Pick a difficulty and watch your device hammer away — exactly what miners do millions of times a second.</p>
+  </div>
+  <div class="tool">
+    <div class="stage2">
+      <div>
+        <div class="fld"><label>Difficulty — leading hex zeros required</label>
+          <input type="range" id="mineDiff" min="1" max="5" step="1" value="3">
+          <div class="statline">Target <b id="mineTarget">0000…</b></div>
+          <div class="statline">Avg attempts to solve <b id="mineOdds">~65,536</b></div>
+        </div>
+        <button class="btn" id="mineBtn" type="button" style="width:100%;justify-content:center">⛏️ Start mining</button>
+        <p class="tool-sub" style="margin-top:12px">Simplified demo using SHA-256 in your browser. Kaspa's real algorithm is <strong>kHeavyHash</strong>, but the guess-and-check idea is identical.</p>
+      </div>
+      <div class="viz">
+        <div class="big" id="mineState" style="color:var(--muted)">Ready</div>
+        <div class="minebar" id="mineHash">Press start and your browser will try millions of nonces, looking for a hash that begins with the required zeros…</div>
+        <div class="minemeta">
+          <div class="m"><div class="l">Hashrate</div><div class="v" id="mineRate">0 H/s</div></div>
+          <div class="m"><div class="l">Attempts</div><div class="v" id="mineTries">0</div></div>
+          <div class="m"><div class="l">Elapsed</div><div class="v" id="mineTime">0.0s</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============================ BLOCKDAG VS CHAIN ============================ -->
+<section class="section" id="blockdag"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">The core idea</span><h2>A chain holds one block at a time. A DAG holds many.</h2>
+    <p>In a normal blockchain, two blocks found at once compete — one wins, the other is orphaned, and that wasted work caps how fast you can safely go. Kaspa lets every valid block in and orders them afterwards. (Scroll back up and crank the visualizer to 100 BPS to see it.)</p>
+  </div>
+  <div class="compare">
+    <div class="col"><h3>Traditional blockchain</h3><ul>
+      <li>One block per height — a single file</li>
+      <li>Parallel blocks become orphans; work is wasted</li>
+      <li>Faster blocks = more orphans = less security</li>
+      <li>Bitcoin: 1 block / 10 min, ~60 min to settle</li>
+    </ul></div>
+    <div class="col kas"><h3>Kaspa blockDAG</h3><ul>
+      <li>Each block references <em>many</em> parents</li>
+      <li>No valid block is ever discarded — no orphans</li>
+      <li>Speed scales without sacrificing 51% security</li>
+      <li>10 blocks / sec · ~1s first confirm · ~10s full</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<!-- ============================ CONFIRMATION RACE ============================ -->
+<section class="section" id="race"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Tool · settlement speed</span><h2>Race a transaction: Kaspa vs Ethereum vs Bitcoin.</h2>
+    <p>Same payment, three networks. Watch how long each takes to reach a confident confirmation. Time is simulated and compressed, but the ratios are real.</p>
+  </div>
+  <div class="tool">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:18px">
+      <div class="mono" style="font-size:.8rem;color:var(--muted)">Simulated elapsed: <b id="raceClock" style="color:var(--teal)">0.0s</b></div>
+      <button class="btn" id="raceBtn" type="button">🏁 Start the race</button>
+    </div>
+    <div class="lane kas"><div class="lh"><span>⚡ Kaspa</span><span class="rt">~1 sec</span></div><div class="track" id="laneKas"><i></i><span class="flag">✓ confirmed</span></div></div>
+    <div class="lane eth"><div class="lh"><span>♦ Ethereum</span><span class="rt">~15 sec / block</span></div><div class="track" id="laneEth"><i></i><span class="flag">✓ confirmed</span></div></div>
+    <div class="lane btc"><div class="lh"><span>₿ Bitcoin</span><span class="rt">~10 min / block</span></div><div class="track" id="laneBtc"><i></i><span class="flag">✓ confirmed</span></div></div>
+    <p class="tool-sub" style="margin:6px 0 0">Kaspa reaches a first confirmation in about a second and full probabilistic security (comparable to ~6 Bitcoin confirmations) in roughly ten seconds.</p>
+  </div>
+</div></section>
+
+<!-- ============================ GHOSTDAG ============================ -->
+<section class="section" id="ghostdag"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">How the DAG stays in order</span><h2>GHOSTDAG: keep every block, agree on the order.</h2>
+    <p>GHOSTDAG identifies the well-connected, honest blocks — the <strong style="color:var(--teal)">blue set</strong> — and orders them first, then slots the rest in deterministically. Every node lands on the same history, and an attacker can't cheaply reorder it.</p>
+  </div>
+  <div class="grid3">
+    <div class="card"><h3>🧩 Many parents</h3><p>A block points to every tip it can see, weaving the DAG together instead of picking one winner.</p></div>
+    <div class="card"><h3>🔵 The blue set</h3><p>Cooperative, well-connected blocks are coloured "blue" and ordered first; isolated or adversarial "red" blocks come after.</p></div>
+    <div class="card"><h3>🛡️ Bitcoin-grade trust</h3><p>The same 51% proof-of-work assumption holds — GHOSTDAG just removes the speed ceiling that orphaning imposed.</p></div>
+  </div>
+</div></section>
+
+<!-- ============================ CRESCENDO ============================ -->
+<section class="section" id="crescendo"><div class="wrap reveal">
+  <div class="band">
+    <span class="eyebrow">Mainnet hardfork · 5 May 2025</span>
+    <h2 style="font-size:clamp(1.5rem,3.4vw,2.1rem);margin:.3em 0 .3em">Crescendo took Kaspa from 1 → 10 blocks per second.</h2>
+    <p style="color:var(--muted);max-width:72ch">Block time dropped 1000 ms → 100 ms. The per-block reward fell 55 → 5.5 KAS — but with 10× more blocks, total emission is unchanged. It also shipped the storage-mass solution (KIP-9), introspection opcodes (KIP-10) and transaction payloads (KIP-14) that lay the groundwork for smart contracts, completing the move to the Rusty Kaspa client.</p>
+    <div class="grid4">
+      <div class="stat"><div class="n">10×</div><div class="l">faster (1→10 BPS)</div></div>
+      <div class="stat"><div class="n">100 ms</div><div class="l">target block time</div></div>
+      <div class="stat"><div class="n">5.5</div><div class="l">KAS reward / block</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">KIPs activated</div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============================ TOCCATA ============================ -->
+<section class="section" id="toccata"><div class="wrap reveal">
+  <div class="band">
+    <span class="eyebrow">Upcoming hardfork · the next movement</span>
+    <h2 style="font-size:clamp(1.5rem,3.4vw,2.1rem);margin:.3em 0 .3em">Toccata: Kaspa becomes a programmable Layer 1.</h2>
+    <p style="color:var(--muted);max-width:74ch">If Crescendo was about speed, <strong>Toccata</strong> is about programmability. It turns Kaspa from a fast payment rail into a full smart-contract platform — native tokens, covenant scripting and zero-knowledge verification, all on the proof-of-work base layer, with no new virtual machine. It activates automatically at <strong>DAA score 474,165,565</strong> — targeted for around <strong>30 June 2026</strong>. <span id="tocCountdown" class="mono" style="color:var(--teal)"></span></p>
+    <div class="grid4">
+      <div class="stat"><div class="n">Native</div><div class="l">KRC-20 tokens on L1</div></div>
+      <div class="stat"><div class="n">SilverScript</div><div class="l">smart-contract language</div></div>
+      <div class="stat"><div class="n">ZK</div><div class="l">native proof verification</div></div>
+      <div class="stat"><div class="n">95%+</div><div class="l">supply already circulating</div></div>
+    </div>
+  </div>
+
+  <div class="safety" style="margin-top:18px">
+    <div class="scard"><h4>🚀 Core innovations</h4><ul>
+      <li><strong>Covenants++</strong> — recursive spending rules and advanced transaction introspection.</li>
+      <li><strong>SilverScript</strong> — a native, highly efficient language for building Kaspa smart contracts.</li>
+      <li><strong>Native tokens (KRC-20)</strong> — scalable token issuance built directly into the Layer 1 base.</li>
+      <li><strong>ZK-proof verification</strong> — a native <span class="mono">OpZkPrecompile</span> to verify off-chain zero-knowledge proofs.</li>
+    </ul></div>
+    <div class="scard"><h4>⛏️ Miner &amp; pool requirements</h4><ul>
+      <li><strong>Software updates</strong> — pools must support the new Transaction v1 structures.</li>
+      <li><strong>New fee formula</strong> — a base fee of <span class="mono">100 sompi × max(compute grams, 2 × tx bytes)</span>.</li>
+      <li><strong>Revenue sustainability</strong> — fee mechanics help support miner revenue as block emission declines.</li>
+    </ul></div>
+    <div class="scard"><h4>⚙️ Node operators &amp; infrastructure</h4><ul>
+      <li><strong>Required client</strong> — migrate to the latest Rusty Kaspa core-engine release.</li>
+      <li><strong>Zero database wipe</strong> — backward compatible; no full resync required.</li>
+      <li><strong>Activation</strong> — launches automatically at DAA score 474,165,565 (≈ 30 June 2026).</li>
+    </ul></div>
+    <div class="scard"><h4>📈 Ecosystem &amp; tokenomics impact</h4><ul>
+      <li><strong>True programmability</strong> — from a fast payment layer to a complete L1 ecosystem: DeFi, NFTs, apps.</li>
+      <li><strong>Fair-launch advantage</strong> — smart contracts arrive on a chain with over 95% of supply already circulating, so there's no insider unlock overhang.</li>
+    </ul></div>
+  </div>
+  <div class="ymyl" style="margin-top:16px"><b>Upgrade status note.</b> Toccata is an announced, DAA-triggered hardfork; the calendar date is a projection from the activation DAA score and can shift, and final parameters are set by the Kaspa developers. Verify against official sources before relying on any detail. Nothing here is financial advice.</div>
+</div></section>
+
+<!-- ============================ IGRA L2 ============================ -->
+<section class="section" id="igra"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Layer 2 · live now</span><h2>Igra: EVM smart contracts on Kaspa, today.</h2>
+    <p>Toccata makes the base layer programmable — but Kaspa fans don't have to wait for smart contracts. <strong>Igra Network</strong>, an independent project from Igra Labs, already delivers them as a decentralized, EVM-compatible Layer 2 built on Kaspa's proof-of-work blockDAG. It reached public mainnet in 2026, finally giving Kaspa's large user base somewhere to actually do DeFi.</p>
+  </div>
+  <div class="facts" style="margin-bottom:24px">
+    <span class="fact"><b>EVM</b> compatible</span>
+    <span class="fact"><b>3,000+</b> TPS</span>
+    <span class="fact"><b>Sub-second</b> inclusion</span>
+    <span class="fact"><b>iKAS</b> gas (1:1 KAS)</span>
+    <span class="fact"><b>Audited</b> by Sigma Prime</span>
+  </div>
+  <div class="grid3">
+    <div class="card"><h3>🔁 A "based" rollup</h3><p>Kaspa miners sequence Igra's transactions directly, so ordering and data availability come from the L1 itself — there's no separate centralized sequencer to trust.</p></div>
+    <div class="card"><h3>🛡️ MEV-resistant by design</h3><p>Miners order transactions without seeing their contents, resisting front-running, censorship and MEV at the protocol level rather than as an app-layer patch.</p></div>
+    <div class="card"><h3>⛽ Fuelled by iKAS</h3><p>KAS wraps 1:1 to iKAS through a trust-minimized bridge backed by KAS locked on the L1, and iKAS pays the gas for every Igra transaction.</p></div>
+    <div class="card"><h3>⚡ Built for DeFi</h3><p>3,000+ TPS and sub-second inclusion, riding Kaspa's 10 BPS DAG. Launch partners include Kaskad (Aave-style lending), ZealousSwap (a DEX) and Hyperlane (cross-chain + stablecoins).</p></div>
+    <div class="card"><h3>🧪 Battle-tested</h3><p>Its testnet processed 730,000+ transactions across 21M blocks with zero state divergence, and a Sigma Prime security audit completed clean before mainnet.</p></div>
+    <div class="card"><h3>🤖 Agent-ready roadmap</h3><p>Igra Labs plans a second-generation engine with Block-STM parallel execution and machine-to-machine payment infrastructure in the second half of 2026.</p></div>
+  </div>
+  <div class="lgrid" style="margin-top:18px">
+    <a class="lcard" href="https://igralabs.com" target="_blank" rel="noopener"><span><span class="lt">igralabs.com</span><br><span class="ls">Official Igra Network site</span></span><span class="arr">↗</span></a>
+    <a class="lcard" href="https://kas.fyi" target="_blank" rel="noopener"><span><span class="lt">Explore tokens &amp; KRC-20</span><br><span class="ls">kas.fyi</span></span><span class="arr">↗</span></a>
+  </div>
+  <div class="ymyl" style="margin-top:18px"><b>Heads-up:</b> Igra is an <b>independent, third-party network</b> — not the Kaspa L1 or core team — and it's young. Bridging KAS to iKAS and using new DeFi protocols carries smart-contract and bridge risk, and funds can be lost. Verify every contract and URL yourself, start small, and remember nothing here is financial advice.</div>
+</div></section>
+
+<!-- ============================ EMISSION EXPLORER ============================ -->
+<section class="section" id="emission"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Tool · tokenomics</span><h2>Explore the "chromatic" emission.</h2>
+    <p>Kaspa caps supply at <strong>28.7 billion KAS</strong>. After a short pre-deflationary phase it entered the chromatic phase: the reward shrinks every month by (½)^(1/12), so it halves once a year — but smoothly, in twelve tiny steps. Drag through time to see it.</p>
+  </div>
+  <div class="tool">
+    <div class="stage2">
+      <div>
+        <div class="fld"><label>Years since mainnet launch (Nov 2021) — <b class="mono" id="emYrLbl">4.6</b></label>
+          <input type="range" id="emYear" min="0" max="20" step="0.1" value="4.6">
+        </div>
+        <div class="statline">Block reward then <b id="emReward">—</b></div>
+        <div class="statline">Approx. supply mined <b id="emSupply">—</b></div>
+        <div class="statline">% of 28.7B cap <b id="emPct" style="color:var(--teal)">—</b></div>
+        <p class="tool-sub" style="margin-top:12px">Illustrative model built from Kaspa's real chromatic formula. The live circulating figure is pulled from a public API up top.</p>
+      </div>
+      <div class="chartbox">
+        <canvas id="emCanvas" aria-label="Emission curve"></canvas>
+        <div class="cap">Cumulative supply approaching the 28.7B cap. The marker tracks your slider.</div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============================ CONVERTER ============================ -->
+<section class="section" id="convert"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Tool · units</span><h2>KAS · sompi · USD converter.</h2>
+    <p>Like Bitcoin has satoshis, Kaspa has <strong>sompi</strong> — and there are 100,000,000 of them in one KAS. Type in any box; the others update. USD uses the live price when available.</p>
+  </div>
+  <div class="tool">
+    <div class="convgrid">
+      <div class="fld"><label>KAS</label><div class="ig"><input id="cvKas" type="text" inputmode="decimal" value="1"><span class="u">KAS</span></div></div>
+      <div class="fld"><label>Sompi</label><div class="ig"><input id="cvSompi" type="text" inputmode="decimal" value="100000000"><span class="u">sompi</span></div></div>
+      <div class="fld"><label>USD <span id="cvPxNote" style="color:var(--muted)">(load price)</span></label><div class="ig"><input id="cvUsd" type="text" inputmode="decimal" value=""><span class="u">USD</span></div></div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <button class="btn ghost sm" id="cvLoad" type="button">📡 Load live KAS price</button>
+      <span class="mono" id="cvPx" style="font-size:.82rem;color:var(--muted)"></span>
+      <a class="tracklink" style="margin-left:auto" href="https://luck.fyi/crypto/kaspa">Full price &amp; charts on Luck.fyi →</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============================ SEED & PAPER WALLET ============================ -->
+<section class="section" id="wallet"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Tool · self-custody</span><h2>Kaspa seed phrase &amp; paper wallet generator.</h2>
+    <p>Kaspa wallets use the same <strong>BIP39</strong> standard as Bitcoin — 12 or 24 words that <em>are</em> your wallet. Generate a valid phrase with real entropy and a SHA-256 checksum, entirely in your browser, then lay it onto a printable Kaspa recovery sheet. Nothing is ever sent anywhere.</p>
+  </div>
+  <div class="tool">
+    <div class="gwarn"><span class="ic">⚠️</span><span><b>For learning &amp; testing only.</b> Never secure real KAS with a phrase generated on any website — including this one. For real funds, generate your phrase on a <strong>hardware wallet</strong>, offline. See <a href="#safety" style="color:var(--teal)">Safety</a> below.</span></div>
+    <div class="gctl">
+      <div class="modetoggle" role="group" aria-label="Phrase length"><button type="button" id="m12" class="on">12 words</button><button type="button" id="m24">24 words</button></div>
+      <button class="btn" id="genBtn" type="button">🎲 Generate phrase</button>
+    </div>
+    <div class="seedwrap hidden" id="seedwrap"><div class="seedgrid" id="seedgrid"></div>
+      <div class="sreveal" id="reveal"><b>👁 Tap to reveal</b><span>Make sure nobody is watching your screen before revealing a recovery phrase.</span></div>
+    </div>
+    <div class="gempty" id="emptySeed">Choose 12 or 24 words, then tap <b>Generate phrase</b> 🎲</div>
+    <div class="gactions" id="seedActions" style="display:none">
+      <button class="btn ghost sm" id="copyBtn" type="button">Copy phrase</button>
+      <button class="btn ghost sm" id="hideBtn" type="button">Hide</button>
+    </div>
+    <details class="gtech" id="techWrap" style="display:none"><summary>🔬 Technical details (entropy &amp; checksum)</summary><div class="tbody" id="techBody"></div></details>
+
+    <!-- paper wallet -->
+    <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--line)">
+      <div class="tool-head"><span class="ic">🪙</span><h3>Turn it into a printable paper wallet</h3></div>
+      <p class="tool-sub">Same length toggle above. Pick a theme, generate, then save as an image or print. It stays blurred until you tap to reveal.</p>
+      <div class="gctl">
+        <input id="pwName" class="nameinput" type="text" maxlength="28" placeholder="Wallet name (optional)" autocomplete="off">
+        <button class="btn" id="pwGenBtn" type="button">🪙 Make paper wallet</button>
+      </div>
+      <span class="swlabel">Card theme</span>
+      <div class="swatches" id="pwSwatch">
+        <div class="sw on" data-th="teal" style="background:linear-gradient(160deg,#49EACB,#11483f)" title="Teal"></div>
+        <div class="sw" data-th="blue" style="background:linear-gradient(160deg,#7aa2ff,#1a2c5a)" title="Blue"></div>
+        <div class="sw" data-th="violet" style="background:linear-gradient(160deg,#b69cff,#2c1a52)" title="Violet"></div>
+        <div class="sw" data-th="mint" style="background:linear-gradient(160deg,#5ce0a0,#11483a)" title="Mint"></div>
+        <div class="sw" data-th="graphite" style="background:linear-gradient(160deg,#cdd3e6,#22262c)" title="Graphite"></div>
+        <div class="sw sw-gold" data-th="gold" style="background:linear-gradient(160deg,#ffd76a,#6e5114)" title="Gold · Special edition"></div>
+      </div>
+      <span class="swnote" id="swNote" style="display:none">✨ Gold — limited special edition</span>
+      <div class="pwwrap hidden" id="pwwrap"><canvas class="pwcanvas" id="pwCanvas" width="1000" height="640" aria-label="Kaspa paper wallet preview"></canvas>
+        <div class="pwreveal" id="pwReveal"><b>👁 Tap to reveal</b><span>Check nobody is watching — don't reveal it on a stream or screen share.</span></div>
+      </div>
+      <div class="gempty" id="pwEmpty">Add an optional name, then tap <b>Make paper wallet</b> 🪙</div>
+      <div class="gactions" id="pwActions" style="display:none">
+        <button class="btn ghost sm" id="pwSaveBtn" type="button">⬇ Save image</button>
+        <button class="btn ghost sm" id="pwPrintBtn" type="button">🖨 Print</button>
+        <button class="btn ghost sm" id="pwHideBtn" type="button">Hide</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- safety / EEAT -->
+  <div class="safety" id="safety">
+    <div class="scard do"><h4>✓ Great for</h4><ul>
+      <li>Learning how Kaspa seed phrases and backups actually work, hands-on.</li>
+      <li>Demos, recovery practice, and test funds.</li>
+      <li>A clean, printable template you fill in <em>by hand</em> from a hardware wallet.</li>
+    </ul></div>
+    <div class="scard dont"><h4>✕ Never for real savings</h4><ul>
+      <li>Saving the image can sync to cloud photos; malware can read files and screenshots.</li>
+      <li>Shared or networked printers may keep a copy in memory.</li>
+      <li>For real KAS, generate on an offline hardware wallet and never let the phrase touch a connected device.</li>
+    </ul></div>
+  </div>
+  <div class="ymyl" style="margin-top:16px"><b>Anyone who can read these words owns the wallet.</b> This generator runs entirely in your browser — nothing is sent, logged or stored — which makes generating and viewing genuinely private. But "safe to generate" is not "safe to guard real savings with." Treat a real paper wallet like cash you can't cancel: keep it offline, private, and backed up in more than one safe place. No exchange, wallet or "support agent" will ever legitimately ask for your phrase — every such request is a scam.</div>
+</div></section>
+
+<!-- ============================ TOKENOMICS SNAPSHOT ============================ -->
+<section class="section" id="tokenomics"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Sound money</span><h2>Tokenomics at a glance.</h2></div>
+  <div class="grid3">
+    <div class="card"><h3>28.7B max</h3><p>Hard-capped supply (~29B in code). Over 95% is already circulating, with the rest minted on a smooth declining schedule.</p></div>
+    <div class="card"><h3>0% insiders</h3><p>No premine, no ICO, no VC, no team or foundation allocation. Every KAS was mined — the same fair-launch ethos as early Bitcoin.</p></div>
+    <div class="card"><h3>Smooth halving</h3><p>The reward halves yearly via tiny monthly cuts of (½)^(1/12) — deflationary, but without Bitcoin's four-year cliffs.</p></div>
+  </div>
+</div></section>
+
+<!-- ============================ QUIZ ============================ -->
+<section class="section" id="quiz"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Tool · test yourself</span><h2>The Kaspa quiz.</h2><p>Six questions. No pressure — each answer comes with the why.</p></div>
+  <div class="quiz"><div class="qcard" id="quizCard">
+    <div class="qq" id="qQ">—</div>
+    <div class="qopts" id="qOpts"></div>
+    <div class="qexp" id="qExp"></div>
+    <div class="qfoot"><span class="qprog" id="qProg"></span><button class="btn sm" id="qNext" type="button" style="display:none">Next →</button></div>
+  </div></div>
+</div></section>
+
+<!-- ============================ CONCEPT CARDS ============================ -->
+<section class="section" id="glossary"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Jargon, decoded</span><h2>Tap a card to flip it.</h2></div>
+  <div class="flips" id="flips">
+    <div class="flip"><div class="flip-in"><div class="flip-f"><h4>BlockDAG</h4><span>tap to flip</span></div><div class="flip-b"><p>A directed acyclic graph of blocks — parallel blocks coexist instead of forming one chain, so none are wasted.</p></div></div></div>
+    <div class="flip"><div class="flip-in"><div class="flip-f"><h4>GHOSTDAG</h4><span>tap to flip</span></div><div class="flip-b"><p>The consensus that orders all those parallel blocks into one agreed history by finding the well-connected "blue" set.</p></div></div></div>
+    <div class="flip"><div class="flip-in"><div class="flip-f"><h4>kHeavyHash</h4><span>tap to flip</span></div><div class="flip-b"><p>Kaspa's proof-of-work algorithm, based on matrix multiplication — mined by GPUs, FPGAs and ASICs.</p></div></div></div>
+    <div class="flip"><div class="flip-in"><div class="flip-f"><h4>Sompi</h4><span>tap to flip</span></div><div class="flip-b"><p>Kaspa's smallest unit, like a satoshi. 1 KAS = 100,000,000 sompi.</p></div></div></div>
+    <div class="flip"><div class="flip-in"><div class="flip-f"><h4>Crescendo</h4><span>tap to flip</span></div><div class="flip-b"><p>The May 2025 hardfork that lifted the network from 1 to 10 blocks per second.</p></div></div></div>
+    <div class="flip"><div class="flip-in"><div class="flip-f"><h4>DAGKnight</h4><span>tap to flip</span></div><div class="flip-b"><p>A next-generation, parameterless consensus under research, aiming for even faster, safer ordering.</p></div></div></div>
+    <div class="flip"><div class="flip-in"><div class="flip-f"><h4>UTXO</h4><span>tap to flip</span></div><div class="flip-b"><p>The "unspent output" accounting model Kaspa shares with Bitcoin — coins are discrete chunks, not balances.</p></div></div></div>
+    <div class="flip"><div class="flip-in"><div class="flip-f"><h4>KRC-20</h4><span>tap to flip</span></div><div class="flip-b"><p>Kaspa's token standard — becoming a native Layer 1 feature with the Toccata upgrade.</p></div></div></div>
+    <div class="flip"><div class="flip-in"><div class="flip-f"><h4>SilverScript</h4><span>tap to flip</span></div><div class="flip-b"><p>Kaspa's native high-level smart-contract language, compiling straight to Kaspa script — no separate VM.</p></div></div></div>
+    <div class="flip"><div class="flip-in"><div class="flip-f"><h4>Toccata</h4><span>tap to flip</span></div><div class="flip-b"><p>The upcoming hardfork that brings native tokens, covenant scripting and ZK verification — Kaspa's programmable-L1 moment.</p></div></div></div>
+    <div class="flip"><div class="flip-in"><div class="flip-f"><h4>Igra</h4><span>tap to flip</span></div><div class="flip-b"><p>An independent EVM Layer 2 on Kaspa, bringing Ethereum-style smart contracts and DeFi today, with KAS bridged 1:1 to iKAS for gas.</p></div></div></div>
+  </div>
+</div></section>
+
+<!-- ============================ ROADMAP ============================ -->
+<section class="section" id="roadmap"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Where it's going</span><h2>From a fast coin to a programmable settlement layer.</h2></div>
+  <div class="road">
+    <div class="ritem done"><span class="dot"></span><div class="ph">Fair launch &amp; 1 BPS <span class="badge">Done · 2021</span></div><p>Mainnet live with GHOSTDAG, no premine, kHeavyHash mining.</p></div>
+    <div class="ritem done"><span class="dot"></span><div class="ph">Rusty Kaspa rewrite <span class="badge">Done</span></div><p>The Go client reimplemented in Rust for the performance to scale block rates.</p></div>
+    <div class="ritem done"><span class="dot"></span><div class="ph">Crescendo — 10 BPS <span class="badge">Done · May 2025</span></div><p>100 ms blocks; KIP-9/10/13/14/15 activated, enabling payloads for smart contracts.</p></div>
+    <div class="ritem next"><span class="dot"></span><div class="ph">Toccata — programmable L1 <span class="badge">Next · ~Jun 2026</span></div><p>Native KRC-20 tokens, SilverScript covenant scripting and ZK verification bring smart contracts to the base layer — no new VM. Activates at DAA score 474,165,565.</p></div>
+    <div class="ritem future"><span class="dot"></span><div class="ph">Higher block rates <span class="badge">Future</span></div><p>The push from 10 toward 32 and 100 BPS as Rusty Kaspa and the network mature.</p></div>
+    <div class="ritem future"><span class="dot"></span><div class="ph">DAGKnight consensus <span class="badge">Research</span></div><p>A next-gen, parameterless consensus targeting even faster, safer ordering under heavy load.</p></div>
+  </div>
+</div></section>
+
+<!-- ============================ MINING ============================ -->
+<section class="section" id="mining"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Securing the network</span><h2>Mining with kHeavyHash.</h2>
+    <p>Kaspa uses <strong>kHeavyHash</strong>, a matrix-multiplication PoW. It mined first on GPUs, then FPGAs, and is now in the ASIC era (e.g. IceRiver). The high block rate makes solo and small-scale mining far more viable than on slow chains.</p>
+  </div>
+  <div class="grid3">
+    <div class="card"><h3>GPU → ASIC</h3><p>Started GPU-friendly; specialized ASICs now lead hashrate, with GPUs still mining smaller setups and testnets.</p></div>
+    <div class="card"><h3>Solo-friendly</h3><p>Blocks land every fraction of a second, so reward variance is low — small miners earn steadier income.</p></div>
+    <div class="card"><h3>Energy profile</h3><p>kHeavyHash is built for efficient parallelization; like all PoW, real impact depends on hardware and energy source.</p></div>
+  </div>
+</div></section>
+
+<!-- ============================ EXPLORERS / ECOSYSTEM ============================ -->
+<section class="section" id="explorers"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Look inside the DAG</span><h2>Explorers &amp; ecosystem.</h2><p>Watch blocks land in parallel, then grab a wallet and find KAS on the market.</p></div>
+  <div class="lgrid" style="margin-bottom:14px">
+    <a class="lcard cta" href="https://kas.fyi" target="_blank" rel="noopener"><span><span class="lt">kas.fyi <span class="badge2">Top pick</span></span><br><span class="ls">Explorer + tokens + analytics</span></span><span class="arr">↗</span></a>
+    <a class="lcard" href="https://explorer.kaspa.org" target="_blank" rel="noopener"><span><span class="lt">Kaspa Explorer</span><br><span class="ls">Blocks &amp; transactions</span></span><span class="arr">↗</span></a>
+    <a class="lcard" href="https://kaspa.org" target="_blank" rel="noopener"><span><span class="lt">BlockDAG visualizer</span><br><span class="ls">Official live DAG view</span></span><span class="arr">↗</span></a>
+    <a class="lcard" href="https://api.kaspa.org" target="_blank" rel="noopener"><span><span class="lt">REST API</span><br><span class="ls">Programmatic network data</span></span><span class="arr">↗</span></a>
+  </div>
+  <div class="sec-head" id="wallets" style="margin-top:40px"><span class="eyebrow">Hold KAS</span><h2>Wallets.</h2><p>KAS is a UTXO coin — self-custody and hold your own keys. Download only from official sources.</p></div>
+  <div class="lgrid">
+    <a class="lcard cta" href="https://tangem.com/invite/A37LE8" target="_blank" rel="sponsored noopener"><span><span class="lt">Tangem <span class="badge2">10% off</span></span><br><span class="ls">Hardware cold storage · our pick</span></span><span class="arr">↗</span></a>
+    <a class="lcard" href="https://kaspa.org/wallets/" target="_blank" rel="noopener"><span><span class="lt">Kaspium</span><br><span class="ls">Popular mobile wallet</span></span><span class="arr">↗</span></a>
+    <a class="lcard" href="https://kaspa.org/wallets/" target="_blank" rel="noopener"><span><span class="lt">KasWare</span><br><span class="ls">Browser extension · KRC-20</span></span><span class="arr">↗</span></a>
+    <a class="lcard" href="https://kaspa.org/wallets/" target="_blank" rel="noopener"><span><span class="lt">Kaspa NG / KDX</span><br><span class="ls">Desktop full-node wallet</span></span><span class="arr">↗</span></a>
+  </div>
+  <div class="sec-head" id="exchanges" style="margin-top:40px"><span class="eyebrow">Buy &amp; trade KAS</span><h2>Where to get KAS.</h2><p>Two exchanges that list KAS — use whichever is available where you live. Listings change, so always verify before depositing.</p></div>
+  <div style="display:flex;gap:11px;flex-wrap:wrap;justify-content:center;margin-bottom:14px">
+    <a class="btn" href="https://www.weex.com/register?ref=2182148961" target="_blank" rel="sponsored noopener">Buy KAS on WEEX →</a>
+    <a class="btn" href="https://btcc.com/invite/Ufl8tan" target="_blank" rel="sponsored noopener">Buy KAS on BTCC →</a>
+  </div>
+  <p style="text-align:center;font-size:.76rem;color:var(--muted);margin:0 0 18px;max-width:64ch;margin-left:auto;margin-right:auto">Exchange and hardware-wallet links are referral links — using them may earn kaspa.best a commission at no extra cost to you. They're not endorsements, and nothing here is financial advice.</p>
+  <div class="lgrid" id="krc20">
+    <a class="lcard luckcard" href="https://luck.fyi/crypto/kaspa"><span><span class="lt">Track KAS on Luck.fyi <span class="badge-luck">Live</span></span><br><span class="ls">Live price, charts &amp; alerts</span></span><span class="arr">↗</span></a>
+    <a class="lcard" href="https://www.coingecko.com/en/coins/kaspa" target="_blank" rel="noopener"><span><span class="lt">CoinGecko — all KAS markets</span><br><span class="ls">Every exchange &amp; pair, live</span></span><span class="arr">↗</span></a>
+    <a class="lcard" href="https://coinmarketcap.com/currencies/kaspa/" target="_blank" rel="noopener"><span><span class="lt">CoinMarketCap — KAS</span><br><span class="ls">Markets, volume &amp; history</span></span><span class="arr">↗</span></a>
+    <a class="lcard" href="https://kas.fyi" target="_blank" rel="noopener"><span><span class="lt">KRC-20 tokens</span><br><span class="ls">Browse the token ecosystem</span></span><span class="arr">↗</span></a>
+  </div>
+</div></section>
+
+<!-- ============================ HOW TO BUY ============================ -->
+<section class="section" id="buy"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Getting started</span><h2>How to get KAS.</h2></div>
+  <div class="steps">
+    <div class="step"><h4>Get a wallet</h4><p>Install an open-source Kaspa wallet and back up your seed phrase offline.</p></div>
+    <div class="step"><h4>Buy on an exchange</h4><p>Get KAS on <a href="https://www.weex.com/register?ref=2182148961" target="_blank" rel="sponsored noopener" style="color:var(--teal)">WEEX</a> or <a href="https://btcc.com/invite/Ufl8tan" target="_blank" rel="sponsored noopener" style="color:var(--teal)">BTCC</a>, whichever is available where you live.</p></div>
+    <div class="step"><h4>Buy &amp; withdraw</h4><p>Purchase KAS, then withdraw to your own address — not your keys, not your coins.</p></div>
+    <div class="step"><h4>Track it</h4><p>Follow the live price, charts and history on <a href="https://luck.fyi/crypto/kaspa" style="color:var(--teal)">Luck.fyi</a>.</p></div>
+  </div>
+  <div style="margin-top:24px" class="ymyl"><b>Not financial advice.</b> Crypto is highly volatile and you can lose some or all of your money. Nothing here is a recommendation to buy or sell. Do your own research, verify every URL and contract, and only risk what you can afford to lose.</div>
+</div></section>
+
+<!-- ============================ EEAT / TRUST ============================ -->
+<section class="section" id="trust"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Standards &amp; trust</span><h2>Accurate, sourced, and honest about what this is.</h2></div>
+  <div class="grid3">
+    <div class="card"><h3>🔎 Independent</h3><p>An unaffiliated educational hub. We don't sell KAS, custody funds, or give financial advice — we explain how Kaspa works and link you to the official sources.</p></div>
+    <div class="card"><h3>📚 Sourced</h3><p>Facts here track Kaspa's own documentation, the GHOSTDAG/PHANTOM research and the Crescendo KIPs. Verify anything against the references below.</p></div>
+    <div class="card"><h3>🧮 Reproducible</h3><p>Every tool runs in open client-side JavaScript — the miner really hashes, the emission curve uses Kaspa's real chromatic formula. No black boxes.</p></div>
+  </div>
+  <div style="margin-top:18px;background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:20px">
+    <h4 style="font-family:var(--display);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:12px">Sources &amp; further reading</h4>
+    <div class="lgrid">
+      <a class="lcard" href="https://kaspa.org" target="_blank" rel="noopener"><span class="lt">kaspa.org</span><span class="arr">↗</span></a>
+      <a class="lcard" href="https://wiki.kaspa.org" target="_blank" rel="noopener"><span class="lt">Kaspa Wiki</span><span class="arr">↗</span></a>
+      <a class="lcard" href="https://docs.kaspa.org" target="_blank" rel="noopener"><span class="lt">Developer docs</span><span class="arr">↗</span></a>
+      <a class="lcard" href="https://github.com/kaspanet/rusty-kaspa" target="_blank" rel="noopener"><span class="lt">Rusty Kaspa (GitHub)</span><span class="arr">↗</span></a>
+      <a class="lcard" href="https://github.com/kaspanet/kips" target="_blank" rel="noopener"><span class="lt">KIPs (Crescendo)</span><span class="arr">↗</span></a>
+    </div>
+    <p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">Last reviewed June 2026 · Maintained by kaspa.best · Spotted an error? It should be corrected — always verify against official sources before acting.</p>
+  </div>
+</div></section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section" id="faq"><div class="wrap reveal">
+  <div class="sec-head"><span class="eyebrow">Straight answers</span><h2>Kaspa FAQ.</h2></div>
+  <div class="faq">
+    <details open><summary>Is Kaspa just another Bitcoin clone?</summary><div class="fa">No. It keeps Bitcoin's proof-of-work, UTXO model and fair-launch ethos, but replaces the single-file chain with a blockDAG ordered by GHOSTDAG — running thousands of times faster while keeping the same security assumption.</div></details>
+    <details><summary>What was the Crescendo upgrade?</summary><div class="fa">A May 2025 mainnet hardfork that raised the network from 1 to 10 blocks per second (100 ms blocks), cut the per-block reward 10× to keep total emission flat, and activated KIPs that enable transaction payloads for smart contracts.</div></details>
+    <details><summary>How many KAS will there ever be?</summary><div class="fa">A maximum of ~28.7 billion (hard cap ~29B in code). Over 95% is already in circulation, and the rest is minted on a smooth schedule that halves the block reward each year.</div></details>
+    <details><summary>Did the team or VCs get coins?</summary><div class="fa">No. There was no premine, no ICO, and no allocation to founders, a foundation or venture capital. Every KAS was mined; development is funded by donations and miners.</div></details>
+    <details><summary>What is the Toccata upgrade?</summary><div class="fa">Toccata is Kaspa's upcoming hardfork that adds native programmability to the base layer: native KRC-20 tokens, covenant scripting via the SilverScript language (Covenants++), and zero-knowledge proof verification — all without a separate virtual machine. It activates automatically at DAA score 474,165,565, targeted for around June 2026, and notably brings smart contracts to a chain whose supply is already over 95% circulating.</div></details>
+    <details><summary>Does Kaspa have smart contracts?</summary><div class="fa">Two ways. On Layer 2, the independent Igra Network already runs EVM smart contracts on top of Kaspa today. At the base layer, the upcoming Toccata hardfork (targeted ~June 2026) adds native KRC-20 tokens, SilverScript covenant scripting and ZK verification — making the L1 itself programmable while keeping proof-of-work.</div></details>
+    <details><summary>What is Igra?</summary><div class="fa">Igra Network is an independent, EVM-compatible Layer 2 from Igra Labs, built as a "based rollup" on Kaspa's proof-of-work blockDAG. It brings Ethereum-style smart contracts and DeFi to Kaspa now, with KAS wrapped 1:1 to iKAS as the gas token, and reached public mainnet in 2026. It's a separate project from the Kaspa L1 and carries its own third-party, early-stage risks.</div></details>
+    <details><summary>Is this an official Kaspa site?</summary><div class="fa">No — this is an independent, community-built demo hub for learning, not affiliated with the Kaspa project. Always verify against official sources like kaspa.org.</div></details>
+  </div>
+</div></section>
+
+</main>
+
+<div class="pw-print"><img id="pwPrintImg" alt="Kaspa paper wallet"></div>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="mf"><div class="wrap">
+  <div class="mf-top">
+    <div class="mf-brand">
+      <a class="mf-logo" href="#top"><svg class="mn-mark" viewBox="0 0 30 30" aria-hidden="true"><circle cx="8" cy="9" r="3" fill="url(#kg)"/><circle cx="22" cy="7" r="3" fill="url(#kg)"/><circle cx="15" cy="16" r="3.4" fill="url(#kg)"/><circle cx="7" cy="23" r="3" fill="url(#kg)"/><circle cx="23" cy="22" r="3" fill="url(#kg)"/></svg>Kaspa<b>.best</b></a>
+      <p>An independent, interactive learning hub for the Kaspa blockDAG. Education only — not affiliated with the Kaspa project, and not financial advice.</p>
+      <div class="mf-soc">
+        <a class="luck" href="https://luck.fyi/crypto/kaspa">Track price on Luck.fyi</a>
+        <a href="https://kaspa.org" target="_blank" rel="noopener">Official site</a>
+        <a href="https://x.com/KaspaCurrency" target="_blank" rel="noopener">X</a>
+        <a href="https://discord.gg/kaspa" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+    <div><h4>Learn</h4><ul><li><a href="#what">What is Kaspa</a></li><li><a href="#blockdag">BlockDAG</a></li><li><a href="#ghostdag">GHOSTDAG</a></li><li><a href="#crescendo">Crescendo</a></li><li><a href="#toccata">Toccata</a></li><li><a href="#roadmap">Roadmap</a></li></ul></div>
+    <div><h4>Tools</h4><ul><li><a href="#dag">BlockDAG visualizer</a></li><li><a href="#dag3d">3D BlockDAG</a></li><li><a href="#mine">Mine a block</a></li><li><a href="#race">Confirmation race</a></li><li><a href="#emission">Emission explorer</a></li><li><a href="#convert">Unit converter</a></li><li><a href="#wallet">Seed &amp; paper wallet</a></li><li><a href="watch-only-kaspa-wallet.html">Watch-only wallet</a></li><li><a href="experimental-kaspa-wallet.html">Experimental wallet</a></li><li><a href="#quiz">Quiz</a></li></ul></div>
+    <div><h4>Network</h4><ul><li><a href="#stats">Live dashboard</a></li><li><a href="#mining">Mining</a></li><li><a href="#toccata">Toccata upgrade</a></li><li><a href="#igra">Igra L2</a></li><li><a href="#explorers">Explorers</a></li><li><a href="#krc20">KRC-20</a></li></ul></div>
+    <div><h4>Use KAS</h4><ul><li><a class="luck-lite" href="https://luck.fyi/crypto/kaspa">Track price</a></li><li><a href="#wallets">Wallets</a></li><li><a href="#exchanges">Exchanges</a></li><li><a href="#buy">How to buy</a></li></ul></div>
+  </div>
+  <p class="mf-rg"><b>Disclaimer &amp; transparency.</b> This is an independent, unofficial information site — not affiliated with the Kaspa project. <b>Luck.fyi is our own sister site, run by the same team</b>, and some exchange and hardware-wallet links are referral links that may earn us a commission at no extra cost to you. Cryptocurrency is volatile and proof-of-work mining carries risk — nothing here is financial, investment or tax advice, and no outcome is guaranteed. Verify everything against official Kaspa sources. 18+.</p>
+  <div class="mf-bot">
+    <span>© <span id="yr"></span> kaspa.best · an independent educational project · not affiliated with Kaspa</span>
+    <span class="mf-legal"><a class="luck-lite" href="https://luck.fyi/crypto/kaspa">Luck.fyi</a><a href="about.html">About</a><a href="https://kaspa.org" target="_blank" rel="noopener">kaspa.org</a><a href="#top">Back to top ↑</a></span>
+  </div>
+</div></footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  "use strict";
+  var doc=document, $=function(id){return doc.getElementById(id);};
+  $('yr').textContent=new Date().getFullYear();
+  function toast(t){ var el=$('toast'); el.textContent=t; el.classList.add('show'); clearTimeout(el._t); el._t=setTimeout(function(){el.classList.remove('show');},2400); }
+  var mn=$('mn');
+  addEventListener('scroll',function(){ mn.classList.toggle('is-scrolled', scrollY>10); },{passive:true});
+
+  /* ---- nav: desktop click + outside close ---- */
+  var groups=[].slice.call(doc.querySelectorAll('.mn-group'));
+  groups.forEach(function(g){ var top=g.querySelector('.mn-top'), panel=g.querySelector('.mn-panel');
+    top.addEventListener('click',function(e){ e.stopPropagation(); var open=panel.classList.contains('is-open');
+      doc.querySelectorAll('.mn-panel.is-open').forEach(function(p){p.classList.remove('is-open');}); if(!open) panel.classList.add('is-open'); }); });
+  doc.addEventListener('click',function(){ doc.querySelectorAll('.mn-panel.is-open').forEach(function(p){p.classList.remove('is-open');}); });
+  addEventListener('keydown',function(e){ if(e.key==='Escape'){ doc.querySelectorAll('.mn-panel.is-open').forEach(function(p){p.classList.remove('is-open');}); mn.classList.remove('is-open'); } });
+
+  /* ---- mobile drawer (grid-rows accordion, single-open) ---- */
+  var acc=$('mnAcc');
+  function mlink(l){ var a=doc.createElement('a'); a.href=l.getAttribute('href'); if(l.target){a.target=l.target;a.rel='noopener';} a.className='mn-mlink';
+    var s=doc.createElement('span'); s.textContent=(l.querySelector('.lt')||l).textContent.trim(); a.appendChild(s);
+    var tag=l.querySelector('.tag'); if(tag){var t=doc.createElement('span');t.className='tag';t.textContent=tag.textContent;a.appendChild(t);} return a; }
+  function sectionsOf(g){ var secs=[], inner=g.querySelector('.mn-panel-inner'); if(!inner) return secs;
+    [].slice.call(inner.children).forEach(function(col){ if(col.classList.contains('mn-feat'))return; var cur=null;
+      [].slice.call(col.children).forEach(function(n){ if(n.classList.contains('mn-col-h')){cur={title:n.textContent.trim(),links:[]};secs.push(cur);}
+        else if(n.classList.contains('mn-link')){ if(!cur){cur={title:'',links:[]};secs.push(cur);} cur.links.push(n); } }); }); return secs; }
+  groups.forEach(function(g){
+    var label=g.querySelector('.mn-top').textContent.trim().replace(/\s+$/,'');
+    var wrap=doc.createElement('div'); wrap.className='mn-acc';
+    var top=doc.createElement('button'); top.type='button'; top.className='mn-acc-top'; top.innerHTML='<span class="lhs">'+label+'</span><i class="caret"></i>';
+    var body=doc.createElement('div'); body.className='mn-acc-body'; var inner=doc.createElement('div'); inner.className='mn-acc-in';
+    sectionsOf(g).forEach(function(sec){ if(!sec.links.length)return;
+      var s=doc.createElement('div'); s.className='mn-sec';
+      var st=doc.createElement('button'); st.type='button'; st.className='mn-sec-top'; st.innerHTML='<span>'+(sec.title||label)+'</span><i class="scaret"></i>';
+      var sb=doc.createElement('div'); sb.className='mn-sec-body'; var si=doc.createElement('div'); si.className='mn-sec-in';
+      sec.links.forEach(function(l){ si.appendChild(mlink(l)); }); sb.appendChild(si); s.appendChild(st); s.appendChild(sb); inner.appendChild(s);
+      st.addEventListener('click',function(e){ e.stopPropagation(); var willOpen=!s.classList.contains('is-open');
+        [].slice.call(inner.querySelectorAll('.mn-sec.is-open')).forEach(function(o){ if(o!==s)o.classList.remove('is-open'); }); s.classList.toggle('is-open', willOpen); }); });
+    body.appendChild(inner); wrap.appendChild(top); wrap.appendChild(body); acc.appendChild(wrap);
+    top.addEventListener('click',function(){ var open=wrap.classList.contains('is-open'); acc.querySelectorAll('.mn-acc.is-open').forEach(function(o){o.classList.remove('is-open');}); if(!open) wrap.classList.add('is-open'); });
+  });
+  $('mnBurger').addEventListener('click',function(){ mn.classList.toggle('is-open'); doc.body.style.overflow=mn.classList.contains('is-open')?'hidden':''; });
+  acc.addEventListener('click',function(e){ if(e.target.closest('.mn-mlink')){ mn.classList.remove('is-open'); doc.body.style.overflow=''; } });
+
+  /* ---- reveal ---- */
+  var io=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);} }); },{threshold:.1});
+  doc.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* ---- flip cards ---- */
+  doc.querySelectorAll('#flips .flip').forEach(function(f){ f.addEventListener('click',function(){ f.classList.toggle('on'); }); });
+
+  /* ---- unique, contextual luck.fyi CTA per section (skips sections already linking there) ---- */
+  var K='https://luck.fyi/crypto/kaspa', C='https://luck.fyi/crypto';
+  var LUCK={
+    why:      [C,'↗ Compare KAS on <b>Luck.fyi</b>'],
+    what:     [K,'↗ KAS price on <b>Luck.fyi</b>'],
+    mine:     [K,'↗ Track KAS on <b>Luck.fyi</b>'],
+    blockdag: [K,'↗ KAS live on <b>Luck.fyi</b>'],
+    race:     [K,'↗ Fast KAS on <b>Luck.fyi</b>'],
+    ghostdag: [K,'↗ Follow KAS on <b>Luck.fyi</b>'],
+    crescendo:[K,'↗ KAS charts on <b>Luck.fyi</b>'],
+    toccata:  [K,'↗ Watch KAS on <b>Luck.fyi</b>'],
+    igra:     [K,'↗ KAS markets on <b>Luck.fyi</b>'],
+    emission: [K,'↗ KAS supply on <b>Luck.fyi</b>'],
+    wallet:   ['https://luck.fyi/seed-phrase-generator.html','↗ Wallet tools on <b>Luck.fyi</b>'],
+    tokenomics:['https://luck.fyi/crypto-cycle.html','↗ KAS cycle on <b>Luck.fyi</b>'],
+    quiz:     [K,'↗ Watchlist on <b>Luck.fyi</b>'],
+    glossary: [K,'↗ See KAS on <b>Luck.fyi</b>'],
+    trust:    [C,'↗ More tools on <b>Luck.fyi</b>'],
+    roadmap:  [K,'↗ KAS updates on <b>Luck.fyi</b>'],
+    mining:   [K,'↗ Mining KAS on <b>Luck.fyi</b>'],
+    faq:      [K,'↗ Explore KAS on <b>Luck.fyi</b>']
+  };
+  doc.querySelectorAll('main > section').forEach(function(s){
+    if(s.querySelector('a[href*="luck.fyi"]')) return;
+    var c=LUCK[s.id]; if(!c) return;
+    var wrap=s.querySelector('.wrap')||s;
+    var d=doc.createElement('div'); d.className='luckrail';
+    var a=doc.createElement('a'); a.href=c[0]; a.innerHTML=c[1];
+    d.appendChild(a); wrap.appendChild(d);
+  });
+
+  /* ---- Toccata target countdown (approximate; the fork is DAA-triggered) ---- */
+  (function(){ var el=$('tocCountdown'); if(!el) return; var target=Date.UTC(2026,5,30,0,0,0);
+    function tick(){ var d=target-Date.now();
+      if(d<=0){ el.textContent='· activation window reached — check an explorer for status.'; return; }
+      var days=Math.floor(d/86400000), hrs=Math.floor(d%86400000/3600000);
+      el.textContent='· ~'+days+'d '+hrs+'h to target'; setTimeout(tick,60000); }
+    tick();
+  })();
+
+  /* ================= BLOCKDAG VISUALIZER ================= */
+  (function(){
+    var c=$('dagCv'); if(!c) return; var ctx=c.getContext('2d');
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var W,H,dpr; function size(){ dpr=Math.min(devicePixelRatio||1,2); W=c.clientWidth; H=c.clientHeight; c.width=W*dpr; c.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+    size(); addEventListener('resize',function(){ size(); seed(); });
+    var bps=10, blueOn=true, paused=false, speed, perFront, COLGAP=78, BUNCH=18, MAXCOL=6, cols=[], id=0;
+    function cfg(){
+      perFront = bps;                                          // blocks per "front" == BPS (accurate, proportional, not random)
+      COLGAP   = bps>=100?28 : bps>=32?44 : bps>=10?66 : 120;  // fronts sit closer together at higher rates
+      speed    = bps>=100?.9  : bps>=32?.66 : bps>=10?.5 : .42;
+      $('dagStat').textContent='~'+bps+' blocks/sec'; }
+    function blockAt(x,n,i){ return {x:x, y:(H/(n+1))*(i+1)+(Math.random()*8-4), r:4.5+Math.random()*3, red:Math.random()<0.12, par:[], id:id++}; }
+    function link(col,prev){ col.blocks.forEach(function(b){ var k=1+Math.floor(Math.random()*Math.min(2,prev.length)); for(var j=0;j<k;j++) b.par.push(prev[Math.floor(Math.random()*prev.length)]); }); }
+    // one "front" ≈ a slice of time: exactly `perFront` blocks (= BPS), split into bunched columns capped MAXCOL tall
+    function pushFront(startX){
+      var nCols=Math.max(1,Math.ceil(perFront/MAXCOL)), x=startX, remaining=perFront;
+      for(var ci=0; ci<nCols; ci++){
+        var n=Math.round(remaining/(nCols-ci)); if(n<1)n=1; remaining-=n;
+        var arr=[]; for(var i=0;i<n;i++) arr.push(blockAt(x,n,i));
+        var col={x:x,blocks:arr};
+        if(cols.length) link(col,cols[cols.length-1].blocks);
+        cols.push(col); x+=BUNCH;
+      }
+      return x; }
+    function seed(){ cols=[]; id=0; var x=14; while(x<W+140){ x=pushFront(x)+COLGAP; } }
+    cfg(); seed();
+    function frame(){
+      ctx.clearRect(0,0,W,H);
+      ctx.lineWidth=1.1;
+      cols.forEach(function(col){ col.blocks.forEach(function(b){ b.par.forEach(function(p){ var red=blueOn&&b.red; ctx.strokeStyle=red?'rgba(255,107,129,.26)':'rgba(73,234,203,.28)'; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(b.x,b.y); ctx.stroke(); }); }); });
+      cols.forEach(function(col){ col.blocks.forEach(function(b){ var red=blueOn&&b.red; var grd=ctx.createRadialGradient(b.x,b.y,1,b.x,b.y,b.r);
+        if(red){grd.addColorStop(0,'#ff9aa8');grd.addColorStop(1,'#ff6b81');} else {grd.addColorStop(0,'#bff6ec');grd.addColorStop(1,'#49EACB');}
+        ctx.fillStyle=grd; ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,7); ctx.fill(); }); });
+      if(!reduce && !paused){
+        cols.forEach(function(col){ col.x-=speed; col.blocks.forEach(function(b){ b.x-=speed; }); });
+        if(cols.length && cols[0].x<-30) cols.shift();
+        var last=cols[cols.length-1]; if(!last || last.x<W+40){ pushFront((last?last.x:W)+COLGAP); }
+      }
+      requestAnimationFrame(frame);
+    }
+    frame();
+    $('bpsBtns').addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b)return; bps=+b.dataset.bps;
+      [].slice.call(this.children).forEach(function(x){x.classList.toggle('on',x===b);}); cfg(); seed(); });
+    $('blueToggle').addEventListener('change',function(){ blueOn=this.checked; });
+    $('pauseToggle').addEventListener('change',function(){ paused=this.checked; });
+  })();
+
+  /* ================= LIVE STATS + CONVERTER PRICE ================= */
+  var KAS_PRICE=null;
+  function fmtUSD(n){ if(n==null)return'—'; if(n>=1e9)return'$'+(n/1e9).toFixed(2)+'B'; if(n>=1e6)return'$'+(n/1e6).toFixed(1)+'M'; if(n<1)return'$'+n.toFixed(5); return'$'+n.toLocaleString(); }
+  function fmtN(n){ if(n==null)return'—'; if(n>=1e9)return(n/1e9).toFixed(2)+'B'; if(n>=1e6)return(n/1e6).toFixed(1)+'M'; if(n>=1e3)return(n/1e3).toFixed(1)+'K'; return Math.round(n).toLocaleString(); }
+  function set(id,v){ var el=$(id); if(el)el.textContent=v; }
+  function applyPrice(p){ KAS_PRICE=p; var n=$('navPrice'); if(n)n.textContent='KAS · '+fmtUSD(p); var note=$('cvPxNote'); if(note)note.textContent='(1 KAS = '+fmtUSD(p)+')'; $('cvPx').textContent='1 KAS = '+fmtUSD(p); if($('cvKas').value) cvFrom('kas'); }
+  function loadStats(){
+    fetch('https://api.coingecko.com/api/v3/coins/kaspa?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false')
+      .then(function(r){return r.json();}).then(function(d){ var m=d.market_data||{};
+        var price=m.current_price&&m.current_price.usd, ch=m.price_change_percentage_24h, cap=m.market_cap&&m.market_cap.usd, circ=m.circulating_supply, rank=d.market_cap_rank;
+        if(price!=null){ set('tPrice',fmtUSD(price)); applyPrice(price); }
+        if(ch!=null){ var ce=$('tChange'); ce.textContent=(ch>=0?'▲ ':'▼ ')+Math.abs(ch).toFixed(2)+'% 24h'; ce.className='s '+(ch>=0?'up':'down'); }
+        if(cap!=null) set('tCap',fmtUSD(cap)); if(rank!=null) set('tRank','rank #'+rank);
+        if(circ!=null) set('tCirc',fmtN(circ));
+      }).catch(function(){});
+    fetch('https://api.kaspa.org/info/blockdag').then(function(r){return r.json();}).then(function(d){ if(d&&d.virtualDaaScore) set('tDaa',fmtN(+d.virtualDaaScore)); }).catch(function(){});
+    /* Kaspa network hashrate.
+       api.kaspa.org/info/hashrate returns TH/s (raw hashes/sec divided by 1e12) — do NOT
+       label that raw number "PH/s" (it would read ~1000x too high). Prefer the API's own
+       pre-formatted string (correct unit guaranteed); fall back to converting TH/s ourselves. */
+    function fmtHashFromTH(th){
+      var h=(+th)*1e12, U=[['EH/s',1e18],['PH/s',1e15],['TH/s',1e12],['GH/s',1e9],['MH/s',1e6],['kH/s',1e3]];
+      if(!isFinite(h)||h<=0) return null;
+      for(var i=0;i<U.length;i++){ if(h>=U[i][1]) return (h/U[i][1]).toFixed(2)+' '+U[i][0]; }
+      return Math.round(h)+' H/s';
+    }
+    fetch('https://api.kaspa.org/info/hashrate?stringOnly=true').then(function(r){return r.text();}).then(function(t){
+      t=(t||'').replace(/^"|"$/g,'').trim();
+      if(/^[0-9.,]+\s*[EPTGMk]?H\/s$/i.test(t)){ set('tHash',t); return; }
+      throw new Error('unformatted');
+    }).catch(function(){
+      fetch('https://api.kaspa.org/info/hashrate?stringOnly=false').then(function(r){return r.json();}).then(function(d){
+        var h=d&&(d.hashrate||d.hashrateHash), out=h?fmtHashFromTH(h):null;
+        if(out) set('tHash',out);
+      }).catch(function(){});
+    });
+  }
+  loadStats();
+
+  /* ================= MINE A BLOCK (sync SHA-256) ================= */
+  function sha256(ascii){
+    function rrot(v,a){return (v>>>a)|(v<<(32-a));}
+    var mp=Math.pow, mw=mp(2,32), result='';
+    var words=[], abl=ascii.length*8;
+    var hash=sha256.h=sha256.h||[], k=sha256.k=sha256.k||[], pc=k.length, comp={};
+    for(var cand=2; pc<64; cand++){ if(!comp[cand]){ for(var i=0;i<313;i+=cand){ comp[i]=cand; } hash[pc]=(mp(cand,0.5)*mw)|0; k[pc++]=(mp(cand,1/3)*mw)|0; } }
+    ascii+='\x80'; while(ascii.length%64-56) ascii+='\x00';
+    for(i=0;i<ascii.length;i++){ var j=ascii.charCodeAt(i); if(j>>8) return; words[i>>2]|=j<<((3-i)%4)*8; }
+    words[words.length]=((abl/mw)|0); words[words.length]=(abl);
+    for(j=0;j<words.length;){ var w=words.slice(j,j+=16), oldHash=hash; hash=hash.slice(0,8);
+      for(i=0;i<64;i++){ var w15=w[i-15], w2=w[i-2], a=hash[0], e=hash[4];
+        var t1=hash[7]+(rrot(e,6)^rrot(e,11)^rrot(e,25))+((e&hash[5])^(~e&hash[6]))+k[i]+(w[i]=(i<16)?w[i]:(w[i-16]+(rrot(w15,7)^rrot(w15,18)^(w15>>>3))+w[i-7]+(rrot(w2,17)^rrot(w2,19)^(w2>>>10)))|0);
+        var t2=(rrot(a,2)^rrot(a,13)^rrot(a,22))+((a&hash[1])^(a&hash[2])^(hash[1]&hash[2]));
+        hash=[(t1+t2)|0].concat(hash); hash[4]=(hash[4]+t1)|0; }
+      for(i=0;i<8;i++){ hash[i]=(hash[i]+oldHash[i])|0; } }
+    for(i=0;i<8;i++){ for(j=3;j+1;j--){ var b=(hash[i]>>(j*8))&255; result+=((b<16)?0:'')+b.toString(16); } }
+    return result;
+  }
+  (function(){
+    var diffEl=$('mineDiff'), running=false, nonce=0, t0=0, header='kaspa-demo-block-', raf=0;
+    function diff(){ return +diffEl.value; }
+    function refresh(){ var z=diff(); $('mineTarget').textContent='0'.repeat(z)+'…'; $('mineOdds').textContent='~'+Math.pow(16,z).toLocaleString(); }
+    diffEl.addEventListener('input',refresh); refresh();
+    function stop(found){ running=false; cancelAnimationFrame(raf); $('mineBtn').textContent='⛏️ Start mining';
+      if(found){ $('mineState').textContent='Block found!'; $('mineState').style.color='var(--mint)'; } }
+    function loop(){
+      if(!running) return;
+      var z=diff(), pre='0'.repeat(z), batch=1500, h;
+      for(var i=0;i<batch;i++){ h=sha256(header+nonce); nonce++; if(h.slice(0,z)===pre){
+        var el=$('mineTime'); var secs=(performance.now()-t0)/1000;
+        $('mineHash').innerHTML='nonce <b class="hh">'+(nonce-1)+'</b> →<br><span class="zero">'+h.slice(0,z)+'</span>'+h.slice(z);
+        $('mineTries').textContent=nonce.toLocaleString(); el.textContent=secs.toFixed(2)+'s';
+        $('mineRate').textContent=fmtRate(nonce/Math.max(secs,.001)); stop(true); toast('⛏️ Solved with '+nonce.toLocaleString()+' attempts!'); return; } }
+      var sec=(performance.now()-t0)/1000;
+      $('mineTries').textContent=nonce.toLocaleString(); $('mineTime').textContent=sec.toFixed(1)+'s'; $('mineRate').textContent=fmtRate(nonce/Math.max(sec,.001));
+      var hh=sha256(header+(nonce-1)); $('mineHash').innerHTML='trying nonce <b class="hh">'+(nonce-1)+'</b> →<br>'+hh;
+      raf=requestAnimationFrame(loop);
+    }
+    function fmtRate(r){ if(r>=1e6)return (r/1e6).toFixed(2)+' MH/s'; if(r>=1e3)return (r/1e3).toFixed(1)+' kH/s'; return Math.round(r)+' H/s'; }
+    $('mineBtn').addEventListener('click',function(){
+      if(running){ stop(false); $('mineState').textContent='Stopped'; $('mineState').style.color='var(--muted)'; return; }
+      running=true; nonce=0; t0=performance.now(); $('mineBtn').textContent='■ Stop'; $('mineState').textContent='Mining…'; $('mineState').style.color='var(--amber)'; loop();
+    });
+  })();
+
+  /* ================= CONFIRMATION RACE ================= */
+  (function(){
+    var lanes={ kas:{el:$('laneKas'),t:1}, eth:{el:$('laneEth'),t:15}, btc:{el:$('laneBtc'),t:600} };
+    var running=false, raf=0, t0=0, REAL=11; /* seconds of real animation */
+    function reset(){ for(var k in lanes){ lanes[k].el.classList.remove('done'); lanes[k].el.querySelector('i').style.width='0'; } $('raceClock').textContent='0 sec'; }
+    function clk(s){ if(s<90) return Math.max(0,Math.round(s))+' sec'; return (s/60).toFixed(1)+' min'; }
+    function step(now){ if(!running)return; var real=(now-t0)/1000, rp=Math.min(1,real/REAL);
+      var sim=600*Math.pow(rp,3), allDone=true;
+      for(var k in lanes){ var L=lanes[k], pr=Math.min(1,sim/L.t); L.el.querySelector('i').style.width=(pr*100)+'%'; if(pr>=1)L.el.classList.add('done'); else allDone=false; }
+      $('raceClock').textContent=clk(sim);
+      if(rp>=1||allDone){ running=false; $('raceBtn').textContent='↻ Race again'; $('raceClock').textContent=clk(600); return; }
+      raf=requestAnimationFrame(step);
+    }
+    $('raceBtn').addEventListener('click',function(){ if(running)return; reset(); running=true; t0=performance.now(); $('raceBtn').textContent='Racing…'; raf=requestAnimationFrame(step); toast('⚡ Watch: Kaspa confirms in ~1 second while Bitcoin crawls toward ~10 minutes.'); });
+  })();
+
+  /* ================= EMISSION EXPLORER ================= */
+  (function(){
+    var CAP=28.7e9, CHROMA0=440, SECMONTH=365.25/12*86400, PREDEF=8.1e9, ASYMP=440*SECMONTH/(1-Math.pow(2,-1/12));
+    function rewardPerSec(years){ var monthsChroma=(years-0.5)*12; if(monthsChroma<0) monthsChroma=0; return CHROMA0*Math.pow(2,-monthsChroma/12); }
+    function supplyAt(years){ if(years<=0.5) return PREDEF*(years/0.5);
+      var m=(years-0.5)*12, cum=0; /* numeric monthly sum */
+      for(var i=0;i<m;i++){ cum+=CHROMA0*Math.pow(2,-i/12)*SECMONTH; }
+      var frac=m-Math.floor(m); if(frac>0){ var i2=Math.floor(m); cum+=CHROMA0*Math.pow(2,-i2/12)*SECMONTH*frac; }
+      return Math.min(CAP, PREDEF+cum);
+    }
+    var cv=$('emCanvas'); function draw(markYears){
+      var ctx=cv.getContext('2d'), dpr=Math.min(devicePixelRatio||1,2), W=cv.clientWidth, H=cv.clientHeight;
+      cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,H);
+      var pad=30, x0=pad, x1=W-pad, y0=H-pad, y1=14, YRS=20;
+      ctx.strokeStyle='rgba(255,255,255,.12)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x0,y1);ctx.lineTo(x0,y0);ctx.lineTo(x1,y0);ctx.stroke();
+      ctx.strokeStyle='rgba(255,200,112,.5)';ctx.setLineDash([5,5]);ctx.beginPath();ctx.moveTo(x0,y1+4);ctx.lineTo(x1,y1+4);ctx.stroke();ctx.setLineDash([]);
+      ctx.fillStyle='rgba(255,200,112,.85)';ctx.font='10px ui-monospace,monospace';ctx.fillText('28.7B cap',x1-58,y1+1);
+      var grad=ctx.createLinearGradient(0,y1,0,y0);grad.addColorStop(0,'rgba(73,234,203,.5)');grad.addColorStop(1,'rgba(73,234,203,0)');
+      var N=160; function X(yr){return x0+(x1-x0)*(yr/YRS);} function Y(s){return y0-(y0-(y1+4))*(s/CAP);}
+      ctx.beginPath(); for(var i=0;i<=N;i++){ var yr=i/N*YRS, s=supplyAt(yr), px=X(yr), py=Y(s); i?ctx.lineTo(px,py):ctx.moveTo(px,py); }
+      ctx.lineTo(x1,y0);ctx.lineTo(x0,y0);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+      ctx.beginPath(); for(var j=0;j<=N;j++){ var yr2=j/N*YRS, s2=supplyAt(yr2), px2=X(yr2), py2=Y(s2); j?ctx.lineTo(px2,py2):ctx.moveTo(px2,py2);} ctx.strokeStyle='#49EACB';ctx.lineWidth=2;ctx.stroke();
+      var mx=X(markYears), my=Y(supplyAt(markYears));
+      ctx.strokeStyle='rgba(255,255,255,.25)';ctx.setLineDash([3,3]);ctx.beginPath();ctx.moveTo(mx,y0);ctx.lineTo(mx,my);ctx.stroke();ctx.setLineDash([]);
+      ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(mx,my,4,0,7);ctx.fill();
+      ctx.fillStyle='rgba(255,255,255,.4)';ctx.fillText('years →',x1-44,y0-6);
+    }
+    function update(){ var yr=+$('emYear').value; $('emYrLbl').textContent=yr.toFixed(1);
+      var rps=rewardPerSec(yr), sup=supplyAt(yr);
+      $('emReward').textContent=rps.toFixed(2)+' KAS/sec';
+      $('emSupply').textContent=fmtN(sup)+' KAS';
+      $('emPct').textContent=(sup/CAP*100).toFixed(1)+'%';
+      draw(yr);
+    }
+    $('emYear').addEventListener('input',update);
+    addEventListener('resize',function(){ draw(+$('emYear').value); });
+    update();
+  })();
+
+  /* ================= CONVERTER ================= */
+  function cvFrom(src){
+    var kasEl=$('cvKas'), soEl=$('cvSompi'), usdEl=$('cvUsd'), kas;
+    if(src==='kas') kas=parseFloat(kasEl.value)||0;
+    else if(src==='sompi') kas=(parseFloat(soEl.value)||0)/1e8;
+    else kas=KAS_PRICE?((parseFloat(usdEl.value)||0)/KAS_PRICE):0;
+    if(src!=='kas') kasEl.value=kas? (+kas.toFixed(8)).toString():'';
+    if(src!=='sompi') soEl.value=kas? Math.round(kas*1e8).toString():'';
+    if(src!=='usd') usdEl.value=(KAS_PRICE&&kas)? (+(kas*KAS_PRICE).toFixed(6)).toString():(KAS_PRICE?'0':'');
+  }
+  $('cvKas').addEventListener('input',function(){cvFrom('kas');});
+  $('cvSompi').addEventListener('input',function(){cvFrom('sompi');});
+  $('cvUsd').addEventListener('input',function(){cvFrom('usd');});
+  $('cvLoad').addEventListener('click',function(){ this.textContent='Loading…';
+    fetch('https://api.coingecko.com/api/v3/simple/price?ids=kaspa&vs_currencies=usd').then(function(r){return r.json();}).then(function(d){
+      if(d&&d.kaspa&&d.kaspa.usd){ applyPrice(d.kaspa.usd); $('cvLoad').textContent='↻ Refresh price'; toast('Live KAS price loaded.'); }
+      else throw 0;
+    }).catch(function(){ $('cvLoad').textContent='📡 Load live KAS price'; toast('Couldn\'t reach the price API here — works on the live site.'); });
+  });
+
+  /* ================= SEED & PAPER WALLET GENERATOR ================= */
+  (function(){
+    var WL_SRC=('data:application/json,'+encodeURIComponent(JSON.stringify(window.BIP39_EN)));
+    var WORDLIST=null, ready=false, strength=128, current=null;
+    function randBytes(n){ var a=new Uint8Array(n); crypto.getRandomValues(a); return a; }
+    function toBits(bytes){ var s=''; for(var i=0;i<bytes.length;i++) s+=bytes[i].toString(2).padStart(8,'0'); return s; }
+    function loadWL(){
+      fetch(WL_SRC,{cache:'force-cache'}).then(function(r){ if(!r.ok)throw 0; return r.json(); }).then(function(list){
+        if(!Array.isArray(list)||list.length!==2048||list[0]!=='abandon'||list[2047]!=='zoo') throw 0;
+        WORDLIST=list; ready=true; $('emptySeed').innerHTML='Choose 12 or 24 words, then tap <b style="color:var(--teal)">Generate phrase</b> 🎲';
+      }).catch(function(){ var framed=(window.self!==window.top);
+        $('emptySeed').textContent= framed?'The generator runs on the live site — this preview window can\u2019t load the BIP39 word list.':'Couldn\u2019t load the BIP39 word list — check your connection and reload.'; });
+    }
+    function setMode(b){ strength=b; $('m12').classList.toggle('on',b===128); $('m24').classList.toggle('on',b===256); }
+    async function makeWords(){ var ENT=strength, entropy=randBytes(ENT/8);
+      var hash=new Uint8Array(await crypto.subtle.digest('SHA-256',entropy));
+      var cs=toBits(hash).slice(0,ENT/32), b=toBits(entropy)+cs, words=[];
+      for(var i=0;i<b.length;i+=11) words.push(WORDLIST[parseInt(b.slice(i,i+11),2)]);
+      return {words:words, entropy:entropy, cs:cs}; }
+    async function gen(){ if(!ready){ toast('Word list still loading…'); return; }
+      var R=await makeWords(); current=R.words; var g=$('seedgrid'); g.innerHTML='';
+      R.words.forEach(function(w,i){ var c=doc.createElement('div'); c.className='seedcell'; c.innerHTML='<span class="num">'+(i+1)+'</span><span class="wd"></span>'; c.querySelector('.wd').textContent=w; g.appendChild(c); });
+      $('emptySeed').style.display='none'; var sw=$('seedwrap'); sw.style.display='block'; sw.classList.add('hidden'); $('seedActions').style.display='flex';
+      var hex=[].map.call(R.entropy,function(x){return x.toString(16).padStart(2,'0');}).join('');
+      $('techWrap').style.display='block'; $('techBody').innerHTML='<b>Entropy ('+(R.entropy.length*8)+'-bit):</b> '+hex+'<br><b>Checksum bits:</b> '+R.cs+' &nbsp;<b>Words:</b> '+R.words.length;
+    }
+    function copyText(txt,btn){ var done=function(){ var o=btn.textContent; btn.textContent='✓ Copied'; setTimeout(function(){btn.textContent=o;},1400); };
+      function fb(){ var t=doc.createElement('textarea'); t.value=txt; t.style.position='fixed'; t.style.opacity='0'; doc.body.appendChild(t); t.select(); try{document.execCommand('copy');}catch(e){} doc.body.removeChild(t); done(); }
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done).catch(fb); } else fb(); }
+    $('m12').addEventListener('click',function(){setMode(128);});
+    $('m24').addEventListener('click',function(){setMode(256);});
+    $('genBtn').addEventListener('click',gen);
+    $('reveal').addEventListener('click',function(){ $('seedwrap').classList.remove('hidden'); });
+    $('hideBtn').addEventListener('click',function(){ $('seedwrap').classList.add('hidden'); });
+    $('copyBtn').addEventListener('click',function(){ if(current) copyText(current.join(' '),$('copyBtn')); });
+    $('seedwrap').style.display='none';
+
+    /* paper wallet canvas */
+    var pwWords=null, pwTheme='teal';
+    var TH={ teal:{ac:'#19b39a',bg:'#0c1a16',ink:'#e7f4ef',mut:'#7f988f',warn:'#ff6b81'},
+      blue:{ac:'#6f93e8',bg:'#0c1322',ink:'#e7ecff',mut:'#8a93b4',warn:'#ff6b81'},
+      violet:{ac:'#9b82e0',bg:'#14102a',ink:'#efe9ff',mut:'#9a91b8',warn:'#ff6b81'},
+      mint:{ac:'#3fbf86',bg:'#0c1a14',ink:'#e7f4ef',mut:'#7f988f',warn:'#ff6b81'},
+      graphite:{ac:'#cdd3e6',bg:'#1a1f26',ink:'#eef1f6',mut:'#9aa3b4',warn:'#ff7a93'},
+      gold:{ac:'#f1c24a',bg:'#181206',ink:'#fdf4dd',mut:'#b6a47c',warn:'#ff6b81'} };
+    function rnd(x,X,Y,W,H,r){ x.beginPath(); x.moveTo(X+r,Y); x.arcTo(X+W,Y,X+W,Y+H,r); x.arcTo(X+W,Y+H,X,Y+H,r); x.arcTo(X,Y+H,X,Y,r); x.arcTo(X,Y,X+W,Y,r); x.closePath(); }
+    function draw(words,name){
+      var c=$('pwCanvas'), W=1000, H=640, dpr=Math.min(devicePixelRatio||1,2); c.width=W*dpr; c.height=H*dpr; c.style.aspectRatio=W+'/'+H;
+      var x=c.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0);
+      var T=TH[pwTheme]||TH.teal, INK=T.ink, AC=T.ac, MUT=T.mut;
+      x.fillStyle=T.bg; x.fillRect(0,0,W,H);
+      x.save(); x.globalAlpha=.16; x.strokeStyle=AC; x.lineWidth=1;
+      for(var k=0;k<5;k++){ x.beginPath(); for(var p=0;p<=W;p+=4){ var yy=72+k*6+Math.sin((p/W)*Math.PI*11+k)*8; p?x.lineTo(p,yy):x.moveTo(p,yy);} x.stroke(); }
+      for(k=0;k<5;k++){ x.beginPath(); for(p=0;p<=W;p+=4){ yy=H-72+k*6+Math.sin((p/W)*Math.PI*11+k+2)*8; p?x.lineTo(p,yy):x.moveTo(p,yy);} x.stroke(); } x.restore();
+      x.strokeStyle=AC; x.lineWidth=3; rnd(x,18,18,W-36,H-36,18); x.stroke();
+      x.save(); x.globalAlpha=.45; x.strokeStyle=AC; x.lineWidth=1; rnd(x,28,28,W-56,H-56,12); x.stroke(); x.restore();
+      x.fillStyle=INK; x.font='700 28px "Space Grotesk",system-ui,sans-serif'; x.fillText('\u25C7 kaspa.best',50,82);
+      x.fillStyle=AC; x.font='700 12px "Space Grotesk",system-ui,sans-serif'; x.fillText('KASPA PAPER WALLET \u00b7 BIP39 RECOVERY SHEET'+(pwTheme==='gold'?' \u00b7 \u2726 SPECIAL EDITION':''),50,103);
+      x.textAlign='right'; x.fillStyle=INK; x.font='700 13px "Space Grotesk",system-ui,sans-serif'; x.fillText(words.length+'-WORD MNEMONIC',W-50,80);
+      x.fillStyle=MUT; x.font='400 12px "Space Grotesk",system-ui,sans-serif'; x.fillText(new Date().toLocaleDateString(),W-50,100); x.textAlign='left';
+      var topY=126; x.strokeStyle='rgba(255,255,255,.12)'; x.lineWidth=1; x.beginPath(); x.moveTo(50,topY); x.lineTo(W-50,topY); x.stroke();
+      x.fillStyle=INK; x.font='600 15px "Space Grotesk",system-ui,sans-serif'; x.fillText('Wallet: '+(name||'My Kaspa Wallet'),50,topY+26);
+      var n=words.length, cols=n>12?4:3, rows=Math.ceil(n/cols), gx=50, gw=W-100, gT=topY+44, gB=520, GH=gB-gT, cw=gw/cols, chh=GH/rows;
+      for(var i=0;i<n;i++){ var col=i%cols, row=Math.floor(i/cols), cx0=gx+col*cw, cy0=gT+row*chh, midY=cy0+chh/2;
+        x.strokeStyle='rgba(255,255,255,.1)'; x.lineWidth=1; rnd(x,cx0+4,cy0+4,cw-8,chh-8,8); x.stroke();
+        x.fillStyle=AC; x.font='700 '+(n>12?12:14)+'px "Space Grotesk",system-ui,sans-serif'; x.fillText(String(i+1).padStart(2,'0'),cx0+16,midY+5);
+        x.fillStyle=INK; x.font='600 '+(n>12?17:21)+'px "DejaVu Sans Mono","Courier New",monospace'; x.fillText(words[i],cx0+(n>12?42:48),midY+(n>12?6:7)); }
+      x.fillStyle=T.warn; x.font='700 13px "Space Grotesk",system-ui,sans-serif'; x.fillText('\u26A0 KEEP SECRET',50,542);
+      x.fillStyle=INK; x.font='400 12.5px "Space Grotesk",system-ui,sans-serif'; x.fillText('Anyone who reads these words can take every KAS in the wallet. Never type them into a website or share a photo.',50,562);
+      x.fillStyle=MUT; x.font='400 11px "Space Grotesk",system-ui,sans-serif'; x.fillText('Generated offline in your browser \u00b7 kaspa.best \u00b7 For learning \u2014 not for real funds',50,H-44);
+      x.fillStyle=AC; x.font='italic 400 11px "Space Grotesk",system-ui,sans-serif'; x.fillText('\u201CThe fastest proof-of-work, reimagined as a blockDAG.\u201D',50,H-26);
+    }
+    async function genPW(){ if(!ready){ $('pwEmpty').style.display='block'; $('pwEmpty').textContent='The word list is still loading (or this preview can\u2019t load it). Try again, or use the live site.'; return; }
+      var R=await makeWords(); pwWords=R.words; draw(R.words,$('pwName').value.trim());
+      $('pwEmpty').style.display='none'; var w=$('pwwrap'); w.style.display='block'; w.classList.add('hidden'); $('pwActions').style.display='flex';
+      try{ $('pwPrintImg').src=$('pwCanvas').toDataURL('image/png'); }catch(e){} }
+    $('pwGenBtn').addEventListener('click',genPW);
+    $('pwReveal').addEventListener('click',function(){ $('pwwrap').classList.remove('hidden'); });
+    $('pwHideBtn').addEventListener('click',function(){ $('pwwrap').classList.add('hidden'); });
+    $('pwSaveBtn').addEventListener('click',function(){ try{ var a=doc.createElement('a'); a.download='kaspa-paper-wallet.png'; a.href=$('pwCanvas').toDataURL('image/png'); a.click(); }catch(e){} });
+    $('pwPrintBtn').addEventListener('click',function(){ try{ $('pwPrintImg').src=$('pwCanvas').toDataURL('image/png'); }catch(e){} window.print(); });
+    doc.querySelectorAll('#pwSwatch .sw').forEach(function(s){ s.addEventListener('click',function(){ doc.querySelectorAll('#pwSwatch .sw').forEach(function(z){z.classList.remove('on');}); s.classList.add('on'); pwTheme=s.dataset.th; var _sn=$('swNote'); if(_sn) _sn.style.display=(pwTheme==='gold')?'block':'none'; if(pwWords){ draw(pwWords,$('pwName').value.trim()); try{$('pwPrintImg').src=$('pwCanvas').toDataURL('image/png');}catch(e){} } }); });
+    $('pwwrap').style.display='none';
+    loadWL();
+  })();
+
+  /* ================= QUIZ ================= */
+  (function(){
+    var Q=[
+      {q:'What makes Kaspa different from a normal blockchain?',a:['It uses proof-of-stake','Blocks form a DAG and run in parallel','It has no maximum supply','It is controlled by a foundation'],c:1,e:'Kaspa keeps proof-of-work but replaces the single chain with a blockDAG, so parallel blocks coexist instead of being orphaned.'},
+      {q:'How many blocks per second does Kaspa produce after Crescendo?',a:['1','10','100','1000'],c:1,e:'The Crescendo hardfork (May 2025) raised the network from 1 to 10 blocks per second, with 100 ms block times.'},
+      {q:'Who got a premine or VC allocation of KAS?',a:['The founder','Early VCs','A foundation','Nobody — it was a fair launch'],c:3,e:'Kaspa had no premine, ICO, or insider allocation. Every KAS was mined from launch.'},
+      {q:'What is the smallest unit of KAS called?',a:['Satoshi','Wei','Sompi','Gwei'],c:2,e:'A sompi is Kaspa\u2019s smallest unit. There are 100,000,000 sompi in one KAS.'},
+      {q:'What does GHOSTDAG do?',a:['Mines blocks faster','Orders parallel blocks into one agreed history','Stores smart contracts','Sets transaction fees'],c:1,e:'GHOSTDAG identifies the well-connected "blue" blocks and orders all parallel blocks deterministically.'},
+      {q:'Roughly what is Kaspa\u2019s maximum supply?',a:['21 million','100 million','28.7 billion','Unlimited'],c:2,e:'Kaspa is capped near 28.7 billion KAS, with over 95% already circulating.'}
+    ];
+    var i=0, score=0, answered=false;
+    function render(){ answered=false; var item=Q[i];
+      $('qQ').textContent=item.q; var opts=$('qOpts'); opts.innerHTML='';
+      item.a.forEach(function(txt,idx){ var b=doc.createElement('button'); b.type='button'; b.className='qopt'; b.textContent=txt;
+        b.addEventListener('click',function(){ if(answered)return; answered=true;
+          [].slice.call(opts.children).forEach(function(x,xi){ x.disabled=true; if(xi===item.c)x.classList.add('right'); });
+          if(idx!==item.c){ b.classList.add('wrong'); } else { score++; }
+          $('qExp').textContent=item.e; $('qExp').classList.add('show'); $('qNext').style.display='inline-flex';
+          $('qNext').textContent = i<Q.length-1?'Next →':'See score →';
+        }); opts.appendChild(b); });
+      $('qExp').classList.remove('show'); $('qNext').style.display='none'; $('qProg').textContent='Question '+(i+1)+' of '+Q.length+' · score '+score;
+    }
+    function finish(){ $('qQ').textContent='You scored '+score+' / '+Q.length+'!';
+      $('qOpts').innerHTML=''; $('qExp').textContent= score===Q.length?'Flawless — you understand the blockDAG. 🟢':(score>=4?'Strong — you\u2019ve got the core ideas down.':'Nice start — scroll back up and play the tools, then retry.');
+      $('qExp').classList.add('show'); $('qProg').textContent='Complete'; $('qNext').textContent='↻ Retry'; $('qNext').style.display='inline-flex';
+      $('qNext').onclick=function(){ i=0;score=0; $('qNext').onclick=null; render(); };
+    }
+    $('qNext').addEventListener('click',function(){ if($('qNext').onclick)return; if(i<Q.length-1){ i++; render(); } else { finish(); } });
+    render();
+  })();
+})();
+</script>
+<script>
+(function(){var f=document.querySelector('#faq .faq');if(!f)return;var d=[].slice.call(f.querySelectorAll('details'));d.forEach(function(x){x.addEventListener('toggle',function(){if(x.open){d.forEach(function(o){if(o!==x)o.open=false;});}});});})();
+</script>
+<script>
+(function(){
+  var ua=navigator.userAgent||'', plat=navigator.platform||'';
+  var ios=/iPhone|iPad|iPod/.test(ua), android=/Android/.test(ua);
+  var mac=/Mac/.test(plat)||/Mac/.test(ua);
+  var msg = ios ? 'Tap <kbd>Share</kbd>, then <b>Add Bookmark</b>'
+          : android ? 'Tap <kbd>&#8942;</kbd> menu, then the <b>&#9733;</b>'
+          : 'Press <kbd>'+(mac?'&#8984;':'Ctrl')+'</kbd> + <kbd>D</kbd> to bookmark';
+  var msgText = ios ? 'Tap Share, then Add Bookmark'
+          : android ? 'Open the menu, then tap the star'
+          : 'Press '+(mac?'\u2318':'Ctrl')+'+D to bookmark';
+
+  var b=document.getElementById('bmBtn'), tip=document.getElementById('bmTip');
+  if(b&&tip){
+    var hideT;
+    b.addEventListener('click',function(e){ e.stopPropagation();
+      try{ if(window.external && typeof window.external.AddFavorite==='function'){ window.external.AddFavorite(location.href, document.title); return; } }catch(_){}
+      tip.innerHTML=msg; tip.classList.add('show');
+      clearTimeout(hideT); hideT=setTimeout(function(){ tip.classList.remove('show'); }, 4500);
+    });
+    document.addEventListener('click',function(e){ if(!b.contains(e.target)) tip.classList.remove('show'); });
+  }
+
+  var hint=document.getElementById('bmHint'); if(hint) hint.innerHTML=msg;
+
+  [].slice.call(document.querySelectorAll('[data-bm]')).forEach(function(btn){
+    var orig=btn.innerHTML;
+    btn.addEventListener('click',function(){
+      try{ if(window.external && typeof window.external.AddFavorite==='function'){ window.external.AddFavorite(location.href, document.title); return; } }catch(_){}
+      function done(ok){ btn.innerHTML=(ok?'Link copied \u2713 \u2014 ':'')+msgText; setTimeout(function(){ btn.innerHTML=orig; }, 3400); }
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(location.href).then(function(){done(true);},function(){done(false);}); }
+      else { done(false); }
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var cv=document.getElementById('kpxCanvas'); if(!cv) return;
+  var tip=document.getElementById('kpxTip'), msg=document.getElementById('kpxMsg');
+  var nowEl=document.getElementById('kpxNow'), chgEl=document.getElementById('kpxChg'), ranges=document.getElementById('kpxRanges');
+  var range=1, cache={}, curPrices=null, UP='#49EACB', DOWN='#ff6b81';
+  function showMsg(m){ if(msg){ msg.textContent=m; msg.style.display='flex'; } }
+  function hideMsg(){ if(msg) msg.style.display='none'; }
+  function px(v){ if(v>=1) return '$'+v.toLocaleString('en-US',{maximumFractionDigits:2}); if(v>=0.01) return '$'+v.toLocaleString('en-US',{maximumFractionDigits:4}); return '$'+v.toLocaleString('en-US',{maximumFractionDigits:8}); }
+  function dlabel(ts,days){ var d=new Date(ts); if(days<=1) return d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); if(days<=90) return d.toLocaleDateString([],{month:'short',day:'numeric'}); return d.toLocaleDateString([],{month:'short',year:'2-digit'}); }
+  function rlabel(d){ return d<=1?'24h':d===7?'7d':d===30?'30d':d===90?'90d':'1y'; }
+  function getJSON(u){ return fetch(u,{headers:{accept:'application/json'}}).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); }); }
+  function getChart(days){ if(cache[days]) return Promise.resolve(cache[days]);
+    return getJSON('https://api.coingecko.com/api/v3/coins/kaspa/market_chart?vs_currency=usd&days='+days).then(function(j){ var p=(j&&j.prices)?j.prices:[]; cache[days]=p; return p; }); }
+  function draw(prices,days){
+    var ctx=cv.getContext('2d'), rect=cv.getBoundingClientRect();
+    var W0=Math.round(rect.width)||cv.clientWidth||cv.parentNode.clientWidth||320, H0=Math.round(rect.height)||cv.clientHeight||340;
+    if(W0<2||H0<2) return;
+    var dpr=window.devicePixelRatio||1; cv.width=Math.round(W0*dpr); cv.height=Math.round(H0*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W0,H0);
+    if(!prices||prices.length<2) return;
+    var pL=6,pR=6,pT=12,pB=16, W=W0-pL-pR, H=H0-pT-pB;
+    var ys=prices.map(function(p){return p[1];}), xs=prices.map(function(p){return p[0];});
+    var min=Math.min.apply(null,ys), max=Math.max.apply(null,ys); if(min===max){min*=0.999;max*=1.001;}
+    var t0=xs[0], t1=xs[xs.length-1];
+    var X=function(t){return pL+((t-t0)/((t1-t0)||1))*W;}, Y=function(v){return pT+(1-((v-min)/((max-min)||1)))*H;};
+    var up=ys[ys.length-1]>=ys[0], col=up?UP:DOWN, i;
+    ctx.strokeStyle='rgba(255,255,255,.06)';
+    for(i=0;i<=4;i++){ var gy=pT+H*i/4; ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(W0,gy); ctx.stroke(); }
+    ctx.beginPath(); ctx.moveTo(X(t0),Y(ys[0]));
+    prices.forEach(function(p){ ctx.lineTo(X(p[0]),Y(p[1])); });
+    ctx.lineTo(X(t1),pT+H); ctx.lineTo(X(t0),pT+H); ctx.closePath();
+    var g=ctx.createLinearGradient(0,pT,0,pT+H);
+    g.addColorStop(0,up?'rgba(73,234,203,.30)':'rgba(255,107,129,.30)'); g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g; ctx.fill();
+    ctx.beginPath(); prices.forEach(function(p,i){ i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])); });
+    ctx.strokeStyle=col; ctx.lineWidth=2.2; ctx.lineJoin='round'; ctx.stroke();
+    ctx.font='10px "Space Grotesk",system-ui,sans-serif'; ctx.textAlign='left'; ctx.textBaseline='middle'; ctx.lineWidth=3; ctx.lineJoin='round';
+    for(i=0;i<=4;i++){ var v=max-(max-min)*i/4, y=Math.max(pT+7,Math.min(pT+H-7,Y(v)));
+      ctx.strokeStyle='rgba(8,14,16,.9)'; ctx.strokeText(px(v),pL+3,y); ctx.fillStyle='#c3d5cd'; ctx.fillText(px(v),pL+3,y); }
+    ctx.textBaseline='alphabetic'; ctx.textAlign='left'; ctx.strokeStyle='rgba(8,14,16,.9)';
+    ctx.strokeText(dlabel(t0,days),pL+3,H0-4); ctx.fillStyle='#c3d5cd'; ctx.fillText(dlabel(t0,days),pL+3,H0-4);
+    ctx.textAlign='right'; ctx.strokeText(dlabel(t1,days),W0-pR-3,H0-4); ctx.fillStyle='#c3d5cd'; ctx.fillText(dlabel(t1,days),W0-pR-3,H0-4);
+    cv._g={prices:prices,X:X,Y:Y,col:col,pT:pT,H:H,days:days};
+  }
+  function tipMove(ev){
+    var g=cv._g; if(!g) return;
+    var rect=cv.getBoundingClientRect();
+    var cx=((ev.touches&&ev.touches[0])?ev.touches[0].clientX:ev.clientX)-rect.left, best=0,bd=1e18,i;
+    for(i=0;i<g.prices.length;i++){ var d=Math.abs(g.X(g.prices[i][0])-cx); if(d<bd){bd=d;best=i;} }
+    draw(g.prices,g.days); g=cv._g; if(!g) return;
+    var p=g.prices[best], pxx=g.X(p[0]), py=g.Y(p[1]), c=cv.getContext('2d');
+    c.strokeStyle='rgba(255,255,255,.28)'; c.lineWidth=1; c.beginPath(); c.moveTo(pxx,g.pT); c.lineTo(pxx,g.pT+g.H); c.stroke();
+    c.fillStyle=g.col; c.beginPath(); c.arc(pxx,py,4,0,Math.PI*2); c.fill(); c.strokeStyle='#fff'; c.lineWidth=1.5; c.stroke();
+    tip.style.opacity='1'; tip.style.left=Math.max(46,Math.min(cv.clientWidth-46,pxx))+'px'; tip.style.top=py+'px';
+    tip.innerHTML='<b>'+px(p[1])+'</b><br>'+new Date(p[0]).toLocaleString([],{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+  }
+  function tipLeave(){ var g=cv._g; if(g) draw(g.prices,g.days); tip.style.opacity='0'; }
+  cv.addEventListener('mousemove',tipMove); cv.addEventListener('mouseleave',tipLeave);
+  cv.addEventListener('touchmove',tipMove,{passive:true}); cv.addEventListener('touchend',tipLeave);
+  function render(days){
+    showMsg('Loading chart\u2026');
+    getChart(days).then(function(prices){
+      curPrices=prices; if(!prices.length) throw new Error('empty');
+      hideMsg();
+      requestAnimationFrame(function(){draw(prices,days);}); setTimeout(function(){draw(prices,days);},160);
+      var first=prices[0][1], last=prices[prices.length-1][1], pct=first?((last-first)/first*100):0, up=pct>=0;
+      nowEl.textContent=px(last); chgEl.className='kpx-chg '+(up?'up':'down'); chgEl.textContent=(up?'+':'')+pct.toFixed(2)+'% \u00b7 '+rlabel(days);
+    }).catch(function(){
+      var framed=(window.self!==window.top);
+      nowEl.textContent='\u2014'; chgEl.textContent='';
+      showMsg(framed?'Chart loads on the published site \u2014 this preview blocks outside connections.':'Could not load the chart right now. Try another range.');
+    });
+  }
+  ranges.addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return;
+    [].slice.call(ranges.querySelectorAll('button')).forEach(function(x){x.classList.remove('on');}); b.classList.add('on');
+    range=+b.dataset.d; render(range);
+  });
+  if(window.ResizeObserver){ new ResizeObserver(function(){ if(curPrices) draw(curPrices,range); }).observe(cv); }
+  var rT; window.addEventListener('resize',function(){ clearTimeout(rT); rT=setTimeout(function(){ if(curPrices) draw(curPrices,range); },200); });
+  render(1);
+})();
+</script>
+<script type="module">
+(function(){
+  if(!document.getElementById('dagStage')) return;  /* guard: no-op if the section isn't present */
+
+/* =========================================================================
+   KASPA BLOCKDAG — vanilla Three.js
+   Performance choices baked in:
+     • Lazy init  : Three.js + the scene only load when the section is in view.
+     • Instancing : every block is one InstancedMesh = 1 draw call.
+     • 1 line mesh: all DAG edges share a single LineSegments geometry.
+     • Capped DPR : pixel ratio clamped (≤2 desktop, ≤1.5 mobile).
+     • Auto-pause : the render loop stops when the canvas is off-screen or the
+                    tab is hidden, so it costs 0% CPU when you're not looking.
+     • Lighting-as-animation: a moving "sweep" light fakes confirmations flowing
+                    through the DAG — no expensive post-processing/bloom.
+     • Respect prefers-reduced-motion + a graceful no-WebGL fallback.
+   To use on your site: keep the <section class="dag3d"> markup, the importmap,
+   and this script. Delete the old 2D DAG canvas. That's it.
+   ========================================================================= */
+
+const stage = document.getElementById('dagStage');
+const tipEl = document.getElementById('dagTip');
+const msgEl = document.getElementById('dagMsg');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isMobile = matchMedia('(max-width: 740px)').matches;
+
+let inited = false;
+
+/* ---- tiny WebGL capability check so we can fall back gracefully ---- */
+function webglOK(){
+  try { const c = document.createElement('canvas');
+    return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl'))); }
+  catch(e){ return false; }
+}
+
+/* ---- lazy boot: only build the scene once the section nears the viewport ---- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ io.disconnect(); start(); } });
+}, { rootMargin: '250px' });
+io.observe(stage);
+
+async function start(){
+  if(inited) return; inited = true;
+  if(!webglOK()){ msgEl.innerHTML = 'Your browser can’t run the 3D view — but Kaspa’s BlockDAG still lets blocks form in parallel and reference many parents for high throughput.'; return; }
+  try { await initDAG(); }
+  catch(err){ console.error(err); msgEl.innerHTML = 'Couldn’t start the 3D visualizer. Reload to try again.'; }
+}
+
+async function initDAG(){
+  /* dynamic import keeps Three.js out of the initial bundle */
+  const THREE = await import('three');
+  const { OrbitControls } = await import('three/addons/controls/OrbitControls.js');
+
+  let W = stage.clientWidth, H = stage.clientHeight;
+
+  /* ---------- renderer ---------- */
+  const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true, powerPreference:'high-performance' });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2));
+  renderer.setSize(W, H);
+  stage.appendChild(renderer.domElement);
+  msgEl.style.display = 'none';
+
+  /* ---------- scene / camera ---------- */
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x070d10, 0.012);
+  const camera = new THREE.PerspectiveCamera(48, W/H, 0.1, 400);
+  camera.position.set(20, 8, 34);
+
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; controls.dampingFactor = 0.08;
+  controls.enablePan = false;
+  controls.minDistance = 16; controls.maxDistance = 78;
+  controls.autoRotate = !reduced && !isMobile;
+  controls.autoRotateSpeed = 0.45;
+  controls.target.set(0, 0, 0);
+
+  /* ---------- lights ---------- */
+  scene.add(new THREE.AmbientLight(0x2a3f4a, 1.25));
+  const fillBlue   = new THREE.PointLight(0x7aa2ff, 0.9, 160); fillBlue.position.set(26, -12, 20);  scene.add(fillBlue);
+  const fillPurple = new THREE.PointLight(0x9d7bff, 0.7, 160); fillPurple.position.set(-6, 22, -26); scene.add(fillPurple);
+  /* the "sweep" light = the confirmation wave moving through the DAG */
+  const sweep = new THREE.PointLight(0x49EACB, 2.4, 60, 1.6); scene.add(sweep);
+
+  /* ---------- build the DAG structure (once) ----------
+     ~10 BPS feel: each "front" (≈ one second) is 6–10 blocks wide, arranged as a
+     jittered disc in the Y-Z plane and densely cross-linking the previous front. */
+  const LAYERS = isMobile ? 10 : 15;          // fronts (seconds) shown in depth
+  const GAPX   = isMobile ? 2.9 : 2.6;         // spacing between fronts along +X
+  const RING   = isMobile ? 3.2 : 4.2;         // radius of each parallel front
+  const blocks = [];                           // {x,y,z,layer,chain,parents[],phase,scale}
+  const layersArr = [];
+
+  for(let L=0; L<LAYERS; L++){
+    const x = (L - (LAYERS-1)/2) * GAPX;
+    const width = 6 + Math.floor(Math.random()*5);      // 6..10 blocks this second
+    const row = [];
+    for(let k=0;k<width;k++){
+      const ang = Math.random()*Math.PI*2;
+      const rad = RING * Math.sqrt(Math.random());       // filled disc
+      const y = Math.sin(ang)*rad*0.82 + (Math.random()-0.5)*0.4;
+      const z = Math.cos(ang)*rad      + (Math.random()-0.5)*0.4;
+      const b = { x, y, z, layer:L, idx:blocks.length, parents:[], chain:1, phase:Math.random()*Math.PI*2, scale:1 };
+      blocks.push(b); row.push(b);
+    }
+    layersArr.push(row);
+  }
+  /* dense multi-parent links: each block references 2–4 nearest tips in the previous front */
+  for(let L=1; L<LAYERS; L++){
+    const prevRow = layersArr[L-1];
+    for(const b of layersArr[L]){
+      const sorted = prevRow.slice().sort((p,q)=>
+        ((p.y-b.y)*(p.y-b.y)+(p.z-b.z)*(p.z-b.z)) - ((q.y-b.y)*(q.y-b.y)+(q.z-b.z)*(q.z-b.z)));
+      const n = 2 + Math.floor(Math.random()*3);         // 2..4 parents
+      for(let i=0;i<Math.min(n,sorted.length);i++) b.parents.push(sorted[i].idx);
+    }
+  }
+  /* selected "chain" = nearest-in-YZ one per front (teal, slightly larger) */
+  let prev = layersArr[0][0]; prev.chain = 0; prev.scale = 1.3;
+  for(let L=1; L<LAYERS; L++){
+    let best = layersArr[L][0], bd = 1e9;
+    for(const b of layersArr[L]){ const d = (b.y-prev.y)*(b.y-prev.y)+(b.z-prev.z)*(b.z-prev.z); if(d<bd){ bd=d; best=b; } }
+    best.chain = 0; best.scale = 1.3; prev = best;
+  }
+  /* colour the rest: mostly blue set, ~25% purple (less-connected / parallel) */
+  for(const b of blocks){ if(b.chain!==0) b.chain = Math.random()<0.75 ? 1 : 2; }
+
+  const minX = blocks[0].x, maxX = blocks[blocks.length-1].x;
+
+  /* ---------- blocks: one InstancedMesh ---------- */
+  const COL = { 0:new THREE.Color(0x49EACB), 1:new THREE.Color(0x7aa2ff), 2:new THREE.Color(0x9d7bff) };
+  const HOT = new THREE.Color(0xeafff8);
+  const geo = new THREE.IcosahedronGeometry(0.52, 0);                 // faceted "gem" block
+  const mat = new THREE.MeshStandardMaterial({ metalness:0.45, roughness:0.25, emissive:0x0a2a26, emissiveIntensity:0.6 });
+  const mesh = new THREE.InstancedMesh(geo, mat, blocks.length);
+  mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  const dummy = new THREE.Object3D();
+  const baseColors = new Float32Array(blocks.length*3);
+  blocks.forEach((b,i)=>{
+    dummy.position.set(b.x,b.y,b.z); dummy.scale.setScalar(b.scale); dummy.updateMatrix();
+    mesh.setMatrixAt(i, dummy.matrix);
+    mesh.setColorAt(i, COL[b.chain]);
+    baseColors[i*3]=COL[b.chain].r; baseColors[i*3+1]=COL[b.chain].g; baseColors[i*3+2]=COL[b.chain].b;
+  });
+  scene.add(mesh);
+
+  /* ---------- edges: one LineSegments ---------- */
+  const epos = [];
+  for(const b of blocks) for(const p of b.parents){ const a=blocks[p];
+    epos.push(b.x,b.y,b.z, a.x,a.y,a.z); }
+  const eGeo = new THREE.BufferGeometry();
+  eGeo.setAttribute('position', new THREE.Float32BufferAttribute(epos, 3));
+  const eMat = new THREE.LineBasicMaterial({ color:0x49EACB, transparent:true, opacity:0.14, blending:THREE.AdditiveBlending });
+  scene.add(new THREE.LineSegments(eGeo, eMat));
+
+  /* highlighted edges for the selected block (re-filled on click) */
+  const selGeo = new THREE.BufferGeometry();
+  selGeo.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(360), 3));
+  const selMat = new THREE.LineBasicMaterial({ color:0x9be9da, transparent:true, opacity:0.95, blending:THREE.AdditiveBlending });
+  const selLines = new THREE.LineSegments(selGeo, selMat); selLines.visible = false; scene.add(selLines);
+
+  /* ---------- interaction (hover + click) ---------- */
+  const ray = new THREE.Raycaster(); const ndc = new THREE.Vector2(); let pointerIn=false, px=0, py=0;
+  let hovered=-1, selected=-1;
+
+  function setPointer(ev){ const r=stage.getBoundingClientRect(); px=ev.clientX-r.left; py=ev.clientY-r.top;
+    ndc.x=(px/r.width)*2-1; ndc.y=-(py/r.height)*2+1; }
+  stage.addEventListener('pointermove', e=>{ pointerIn=true; setPointer(e); });
+  stage.addEventListener('pointerleave', ()=>{ pointerIn=false; hovered=-1; tipEl.classList.remove('on'); });
+
+  function paint(i, color){ mesh.setColorAt(i, color); mesh.instanceColor.needsUpdate = true; }
+  function restore(i){ mesh.setColorAt(i, new THREE.Color(baseColors[i*3],baseColors[i*3+1],baseColors[i*3+2])); mesh.instanceColor.needsUpdate=true; }
+
+  function showTip(b){
+    const names={0:'Selected chain',1:'Blue set (merged)',2:'Parallel block'};
+    tipEl.innerHTML = '<b>Block #'+b.idx+'</b> · layer '+b.layer+'<br>'+names[b.chain]+' · '+b.parents.length+' parent'+(b.parents.length!==1?'s':'');
+    tipEl.style.left = px+'px'; tipEl.style.top = py+'px'; tipEl.classList.add('on');
+  }
+
+  stage.addEventListener('click', ()=>{
+    if(hovered<0){ selected=-1; selLines.visible=false; return; }
+    selected = hovered;
+    const b = blocks[selected]; const pts=[];
+    for(const p of b.parents){ const a=blocks[p]; pts.push(b.x,b.y,b.z, a.x,a.y,a.z); }   // edges to parents
+    for(const o of blocks) for(const p of o.parents) if(p===selected){ pts.push(o.x,o.y,o.z, b.x,b.y,b.z); } // edges to children
+    const arr = selGeo.attributes.position.array;
+    for(let i=0;i<arr.length;i++) arr[i] = pts[i] || 0;
+    selGeo.attributes.position.needsUpdate = true; selGeo.setDrawRange(0, pts.length/3); selLines.visible = true;
+  });
+
+  /* ---------- controls UI ---------- */
+  let speed = 0.55, bobAmp = reduced ? 0 : 0.09;
+  document.getElementById('dagSpeed').addEventListener('input', e=>{ speed = e.target.value/100; });
+  const zoomEl = document.getElementById('dagZoom');
+  function applyZoom(){ const d = 70 - (zoomEl.value/100)*(70-18);   // slider → distance
+    const dir = camera.position.clone().sub(controls.target).normalize();
+    camera.position.copy(controls.target).addScaledVector(dir, d); }
+  zoomEl.addEventListener('input', applyZoom); applyZoom();
+  document.getElementById('dagReset').addEventListener('click', ()=>{
+    controls.target.set(0,0,0); camera.position.set(2,7,40); zoomEl.value=42; applyZoom(); selected=-1; selLines.visible=false;
+  });
+
+  /* ---------- resize ---------- */
+  const ro = new ResizeObserver(()=>{ W=stage.clientWidth; H=stage.clientHeight; if(!W||!H) return;
+    camera.aspect=W/H; camera.updateProjectionMatrix(); renderer.setSize(W,H); });
+  ro.observe(stage);
+
+  /* ---------- render loop (auto-paused when off-screen / tab hidden) ---------- */
+  const clock = new THREE.Clock(); let sweepT = 0; let running=true, visible=true; let raf=0;
+  function frame(){
+    if(!running){ return; }
+    raf = requestAnimationFrame(frame);
+    const dt = Math.min(clock.getDelta(), 0.05); const t = clock.elapsedTime;
+
+    /* subtle bob per block (keeps it alive without detaching edges) */
+    if(bobAmp>0){
+      for(let i=0;i<blocks.length;i++){ const b=blocks[i];
+        dummy.position.set(b.x, b.y + Math.sin(t*(0.8+speed) + b.phase)*bobAmp, b.z);
+        dummy.scale.setScalar(b.scale * (i===hovered?1.45:1));
+        dummy.updateMatrix(); mesh.setMatrixAt(i, dummy.matrix);
+      }
+      mesh.instanceMatrix.needsUpdate = true;
+    }
+
+    /* confirmation sweep light travels +X and loops */
+    sweepT = (sweepT + dt*(0.15 + speed*0.85)) % 1;
+    sweep.position.set(minX + sweepT*(maxX-minX), 4, 12);
+    sweep.intensity = 2.0 + Math.sin(t*3)*0.4;
+
+    /* hover raycast (one InstancedMesh → cheap) */
+    if(pointerIn){
+      ray.setFromCamera(ndc, camera);
+      const hit = ray.intersectObject(mesh);
+      const id = hit.length ? hit[0].instanceId : -1;
+      if(id!==hovered){
+        if(hovered>=0 && hovered!==selected) restore(hovered);
+        hovered = id;
+        if(hovered>=0){ paint(hovered, HOT); showTip(blocks[hovered]); stage.style.cursor='pointer'; }
+        else { tipEl.classList.remove('on'); stage.style.cursor=''; }
+      } else if(hovered>=0){ tipEl.style.left=px+'px'; tipEl.style.top=py+'px'; }
+    }
+
+    controls.update();
+    renderer.render(scene, camera);
+  }
+
+  function setRunning(on){ if(on && !running){ running=true; clock.getDelta(); frame(); } else if(!on){ running=false; cancelAnimationFrame(raf); } }
+  /* pause when the canvas leaves the viewport */
+  new IntersectionObserver(es=>{ visible = es[0].isIntersecting; setRunning(visible && !document.hidden); }, {threshold:0.01}).observe(stage);
+  document.addEventListener('visibilitychange', ()=> setRunning(visible && !document.hidden));
+
+  frame(); // kick off
+}
+
+})();
+</script>
+<style>/* cursor policy — no I-beam on non-text UI */
+*{cursor:default}
+a,button,summary,label,select,[role="button"],[role="link"],[role="tab"],.btn,[onclick],
+.mn-top,.mn-logo,.tab,.chip,.pill,.card-link,.acc-head,.copy,.toggle,.qz-opt,.q,
+input[type="button"],input[type="submit"],input[type="reset"],input[type="checkbox"],input[type="radio"],input[type="range"]{cursor:pointer}
+input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+textarea,[contenteditable="true"]{cursor:text}
+:disabled,[disabled],[aria-disabled="true"]{cursor:not-allowed}
+</style>
+<style>/* responsive grid fix */
+@media(max-width:1000px){.grid3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.grid3{grid-template-columns:1fr}}
+</style>
+</body>
+</html>
